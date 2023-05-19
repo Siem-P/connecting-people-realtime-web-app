@@ -1,0 +1,30 @@
+<!-- Player facts -->
+<dialog class="fact-dialog">
+    <div class="fact-wrapper">
+        <div class="dialog-heading">
+            <h2>Player facts</h2>
+            <button class="close-dialog">X</button>
+        </div>
+        
+        <div class="dialog-content">
+            <% if (player.facts.length > 0){ %>
+                <% player.facts.forEach(fact => { %>
+                    <div class="fact-group">
+                        <div class="fact-title">
+                            <p><%- fact.question.title %></p>
+                        </div>
+                        <div class="fact-answer">
+                            <p><%- fact.answer %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="fact-group">
+                    <div class="fact-title">
+                        <p>No facts available</p>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</dialog>

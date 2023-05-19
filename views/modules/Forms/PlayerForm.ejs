@@ -1,0 +1,60 @@
+<form action="/playerform" method="post" name="addPlayerForm">
+  <label>
+    Name
+    <input type="text" name="name" value="" />
+  </label>
+
+  <label>
+    Jersey number
+    <input type="int" name="jerseyNumber" value="" />
+  </label>
+
+  <fieldset>
+    <legend>Gender</legend>
+    <label>
+      Male
+      <input type="radio" name="gender" value="Male" />
+    </label>
+    <label>
+      Female
+      <input type="radio" name="gender" value="Female" />
+    </label>
+    <label>
+      Non-binary
+      <input type="radio" name="gender" value="NonBinary" />
+    </label>
+  </fieldset>
+
+  <label>
+    Height
+    <input type="int" name="height" value="" />
+  </label>
+
+  <label>
+    Pronounced
+    <input type="text" name="pronounced" value="" />
+  </label>
+
+  <label>
+    Pronouns
+    <input type="text" name="pronouns" value="" />
+  </label>
+
+  <label>
+    Team
+    <select name="team">
+      <option disabled selected>--- Select ---</option>
+
+      <!-- If statement to check whether teams exist -->
+      <!-- For each loop to through each team -->
+      <!-- new <option> for each team -->
+      <!-- Else -> no team available? Create new team -->
+
+      <% teams.forEach(team => { %>
+      <option value="<%- team.id %>"><%- team.name %></option>
+      <% }) %>
+    </select>
+  </label>
+
+  <input type="submit" value="Submit" />
+</form>

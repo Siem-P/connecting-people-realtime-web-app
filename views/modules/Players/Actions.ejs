@@ -1,0 +1,22 @@
+<% 
+let goal = gameStats.stats[0].point.filter(pt => pt.scoredBy.id === player.id).length
+let assist = gameStats.stats[0].point.filter(pt => pt.assistBy.id === player.id).length
+
+let block = gameStats.stats[0].point.reduce((count, pt) => {
+    return (pt.blockPlayers ? count = count + pt.blockPlayers.filter(bp => bp.id === player.id).length : count = 0)
+}, 0)
+
+let turnover = gameStats.stats[0].point.reduce((count, pt) => {
+    return (pt.turnoverPlayers ? count = count + pt.turnoverPlayers.filter(tp => tp.id === player.id).length : count = 0)
+}, 0)
+
+const actions = ["goal", "assist", "block", "turnover"] 
+
+actions.forEach(action => {
+    if (eval(action) > 0) { %>
+        <p class="action <%- action %>"><%- eval(action) %></p>
+    <% } else { %>
+        <p class="action <%- action %> reduced-opacity"><%- eval(action) %></p>
+    <% }
+})
+%>

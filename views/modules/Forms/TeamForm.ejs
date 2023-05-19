@@ -1,0 +1,38 @@
+<form action="/teamform" method="post" name="addTeamForm">
+
+    <label>
+        Team Name
+        <input type="text" name="name" value="">
+    </label>
+
+    <label>
+        Country
+        <input type="text" name="country" value="">
+    </label>
+
+    <label>
+        Seeding
+        <input type="number" name="seeding" value="">
+    </label>
+
+    <label>
+        ISO 2
+        <input type="text" name="iso2" value="">
+    </label>
+
+    <label>
+        ISO 3
+        <input type="text" name="iso3" value="">
+    </label>
+
+    <label>
+        Olympic Code    
+        <input type="text" name="olympicCode" value="<%= locals.values?.olympicCode ?? ''%>">
+    </label>
+
+    <!-- Add Empty Team array in the backend -->
+    <!-- Add Empty Facts array in the backend -->
+
+    
+    <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,22 @@
+
+<!-- Player Fact -->
+<form action="/factform" method="post">  
+
+    <select name="question">
+        <% questions.forEach(question => { %>
+            <option value="<%- question.id %>"><%- question.title %></option>
+        <% }) %>
+    </select>
+
+    <label>
+        Answer
+        <input type="text" name="answer" value="">
+    </label>
+    
+    <select name="reference">
+        <% players.forEach(player => { %>
+            <option value="<%- player.id %>"><%- player.name %></option>
+        <% }) %>
+    </select>
+    <input type="submit" value="Submit">
+</form>

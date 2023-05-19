@@ -19,7 +19,7 @@ Je werkt in een team van max. 3 frontenders aan een website voor een opdrachtgev
 Deze opdracht gaat over alle fases van de DLC [analyseren](#analyseren), [ontwerpen](#ontwerpen), [bouwen](#bouwen), [integreren](#integreren) en [testen](#testen).
 
 ### Analyseren
-In de analysefase ga je na of wat jullie vorige sprint hebben vastgelegd over  hoe jullie [samenwerken](#samenwerken) nog klopt. Je houdt een [brainstom](#brainstorm) over het te realiseren real-time product. Ook onderzoek je wat jullie gaan maken en maak je een [planning](#planning). 
+In de analysefase ga je na of wat jullie vorige sprint hebben vastgelegd over  hoe jullie [samenwerken](#samenwerken) nog klopt. Je houdt een [brainstom](#brainstorm) over het te realiseren real-time product. Ook onderzoek je wat jullie gaan maken en maak je een [planning](#planning).
 
 #### Samenwerken
 In de analysefase herzie je als team afspraken over hoe je gaat samenwerken.
@@ -51,7 +51,7 @@ In de analysefase bespreek je als team welke werkzaamheden er zijn, wie wat gaat
 
 1. Koppel het _project board_ aan de nieuwe gezamenlijke _repository_ om bij te kunnen houden wie wat doet.
 2. Plan voor de aankomende weken alle standups en reviews en noteer de planning in jullie _project board_.
-3. Bekijk en bespreek álle _User Stories_ die bij het project horen. 
+3. Bekijk en bespreek álle _User Stories_ die bij het project horen.
 4. Bespreek de _User Stories_ die jullie willen oppakken en bedenk wat je voor elke user story moet doen.
 5. Maak bij elke *User Story* meerdere taken aan in het *project board*, geef ze een prioriteit en voeg de namen toe van de mensen die eraan gaan werken. ProTip: Als taken te groot zijn (langer dan een dag duren) is het zinvol ze op te splitsen in meerdere kleinere taken.
 
@@ -86,7 +86,7 @@ ProTip: Je kunt je functionaliteit het beste op een losse branch uitwerken, deze
 - [Barebonechat voorbeeld van ju5tu5@github](https://github.com/ju5tu5/barebonechat)
 
 ### Integreren
-In de integratiefase voer je de aanpassingen door zodat iedereen ze kan zien en er op verder kan bouwen. 
+In de integratiefase voer je de aanpassingen door zodat iedereen ze kan zien en er op verder kan bouwen.
 
 1. Integreer jouw real-time web app in de bestaande website van de opdrachtgever.
 2. Maak een *pull-request* voor de real-time functionaliteit.
@@ -112,7 +112,7 @@ In de testfase controleer je of jouw aanpassingen werken zoals bedoeld. Zoals je
 ## Criteria
 *Definitions of done*
 
-Focus sprint 11 - De focus van deze sprint ligt op het maken van multi-user omgeving door het opzetten van een real-time verbinding tussen client en server. 
+Focus sprint 11 - De focus van deze sprint ligt op het maken van multi-user omgeving door het opzetten van een real-time verbinding tussen client en server.
 
 ### Deze leertaak hoort bij de gedragscriteria:
 
