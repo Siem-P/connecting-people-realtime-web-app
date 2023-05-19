@@ -1,7 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
+import { createServer } from 'http'
+import { Server } from 'socket.io'
 
 const server = express();
+const http = createServer(server)
+const io = new Server(http)
 // Api url
 const apiUrl = "https://ultitv-api.netlify.app/api/v2";
 const localUrl = "http://localhost:5173/api/v2";
@@ -14,9 +18,17 @@ server.use(express.static("public"));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 
-server.listen(server.get("port"), () => {
+http.listen(server.get("port"), () => {
 	console.log(`Application started on http://localhost:${server.get("port")}`);
 });
+
+io.on('connection', (socket) => {
+  console.log('a user connected')
+
+  socket.on('disconnect', () => {
+      console.log('user disconnected')
+  })
+})
 
 server.get("/", async (req, res) => {
     // TODO - Variable game id

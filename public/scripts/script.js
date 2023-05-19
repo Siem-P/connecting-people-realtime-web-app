@@ -37,3 +37,6 @@ function showBlock(block) {
     }
     allBlocks.style.display = "none"
 }
+
+
+const socket = io();
