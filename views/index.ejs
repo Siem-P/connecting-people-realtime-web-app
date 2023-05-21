@@ -1,18 +1,10 @@
 <%- include('./partials/head') %>
 
 <main>
-	<div class="container-header-game-score-navigation">
-		<!-- Game score -->
-		<%- include('./modules/GameScore') %>
-		<div class="container-header-navigation">
-			<!-- Header -->
-			<%- include('./modules/Header') %>
+	<!-- Heading with game info -->
 
-			<!-- Navigation -->
-			<%- include('./modules/Navigation') %>
-		</div>
-	</div>
-	
+	<!-- Game score -->
+
 	<!-- Team One -->
 	<%- include('./modules/Players/TeamOne', {gameData, playerData}) %>
 
@@ -20,10 +12,10 @@
 	<%- include('./modules/Players/TeamTwo', {gameData, playerData}) %>
 
 	<!-- Scoreboard -->
-	<%- include('./modules/Scoreboard', {gameStats, playerData}) %>
+	
 
 	<!-- Stats -->
-	<section class="stats-block nav-blocks"></section>
-	
+
+
 </main>
 <%- include('./partials/footer') %>

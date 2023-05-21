@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
   })
 })
 
-server.get("/", async (req, res) => {
+server.get("/commentate", async (req, res) => {
     // TODO - Variable game id
     const gameData = await dataFetch(`${apiUrl}/games?id=111`)
     const playerData = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC&first=100`)
