@@ -1,9 +1,11 @@
 <%- include('./partials/head') %>
 
-<main>
+<main class="commentate-main">
 	<!-- Heading with game info -->
+	<%- include('./modules/Commentate/Header', {gameData}) %>
 
 	<!-- Game score -->
+	<%- include('./modules/Commentate/GameScore') %>
 
 	<!-- Team One -->
 	<%- include('./modules/Commentate/Players/TeamOne', {gameData, playerData}) %>
@@ -12,6 +14,7 @@
 	<%- include('./modules/Commentate/Players/TeamTwo', {gameData, playerData}) %>
 
 	<!-- Scoreboard -->
+	<%- include('./modules/Commentate/Scoreboard') %>
 
 	<!-- Stats -->
 
