@@ -26,8 +26,13 @@ io.on('connection', (socket) => {
   console.log('a user connected')
 
   socket.on('disconnect', () => {
-      console.log('user disconnected')
+    console.log('user disconnected')
   })
+})
+
+server.get("/", async (req, res) => {
+  const allGames = await dataFetch(`${apiUrl}/games`)
+  res.render("index", { allGames })
 })
 
 server.get("/commentate", async (req, res) => {
@@ -39,7 +44,7 @@ server.get("/commentate", async (req, res) => {
     const allTeams = await dataFetch(`${apiUrl}/teams`);
     const questionData = await dataFetch(`${apiUrl}/questions?type=Player`);
 
-    res.render("index", {
+    res.render("commentate", {
 		gameData,
 		playerData,
 		gameStats,

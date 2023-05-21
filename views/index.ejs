@@ -1,21 +1,25 @@
 <%- include('./partials/head') %>
 
 <main>
-	<!-- Heading with game info -->
 
-	<!-- Game score -->
+  <!-- Heading with logo -->
+  <div class="logo-lg">
+    <img src="./assets/logo-text-svg.svg" alt="" class="logo-text">
+  </div>
 
-	<!-- Team One -->
-	<%- include('./modules/Players/TeamOne', {gameData, playerData}) %>
+  <!-- Tournament Schedule -->
+  <section class="schedule">
+    <h1 class="schedule-heading">Tournament Schedule</h1>
 
-	<!-- Team Two -->
-	<%- include('./modules/Players/TeamTwo', {gameData, playerData}) %>
+    <!-- First row games -->
+    <h2 class="schedule-date">01 WED</h2>
+      <!--  -->
 
-	<!-- Scoreboard -->
-	
+    <!-- Second row games -->
+    <h2 class="schedule-date">02 THU</h2>
+  </section>
 
-	<!-- Stats -->
-
+  <!-- Sidebar nav -->
 
 </main>
 <%- include('./partials/footer') %>
