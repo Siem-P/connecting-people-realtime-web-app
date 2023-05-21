@@ -1,0 +1,43 @@
+<div class="game-card">
+    <!-- Top of game card -->
+    <div class="card-top">
+        <div class="card-top-left">
+            <img src="./assets/team1.svg" alt="Team 1 logo" class="team-logo">
+            <p class="team-name"><%- game.team1.name %></p>
+        </div>
+
+        <div class="card-top-center">
+            <p>VS</p>
+        </div>
+
+        <div class="card-top-right">
+            <img src="./assets/team2.svg" alt="Team 2 logo" class="team-logo">
+            <p class="team-name"><%- game.team2.name %></p>
+        </div>
+    </div>
+
+    <!-- Middle of game card -->
+    <div class="card-divider"></div>
+
+
+    <!-- Bottom of game card -->
+    <div class="card-bottom">
+        <div class="card-tags">
+            <p class="tag"><%- game.division %></p>
+            <p class="tag"><%- game.gameId %></p>
+            <p class="tag"><%- game.field %></p>
+            <p class="tag"><%- game.gameStatus %></p>
+        </div>
+
+        <div class="card-buttons">
+            <a class="card-link" href="">
+                <img src="./assets/stats.svg" alt="Stats icon" class="card-btn-svg">
+                Stats
+            </a>
+            <a class="card-link" href="/commentate">
+                <img src="./assets/commentate.svg" alt="Commentate icon" class="card-btn-svg">
+                Commentate
+            </a>
+        </div>
+    </div>
+</div>
