@@ -31,10 +31,14 @@ io.on('connection', (socket) => {
   })
 })
 
+/* ---------------------------------- Index --------------------------------- */
+
 server.get("/", async (req, res) => {
   const allGames = await dataFetch(`${apiUrl}/games`)
   res.render("index", { allGames })
 })
+
+/* ------------------------------- Commentate ------------------------------- */
 
 server.get("/commentate", async (req, res) => {
     const gameData = await dataFetch(`${apiUrl}/games?id=111`)
@@ -70,6 +74,15 @@ server.get("/commentate/:id", async (req, res) => {
     })
 })
 
+/* ---------------------------------- Teams --------------------------------- */
+
+server.get("/teams", async (req, res) => {
+    const allTeams = await dataFetch(`${apiUrl}/teams`)
+    res.render("teams", { allTeams })
+})
+
+/* ---------------------------------- Forms --------------------------------- */
+
 server.get("/forms", async (req, res) => {
 	const allTeams = await dataFetch(`${apiUrl}/teams`);
 	const playerData = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC&first=100`)
@@ -82,10 +95,8 @@ server.get("/forms", async (req, res) => {
 // Add player form
 server.post("/playerform", async (req, res) => {
   const postPlayerURL = apiUrl + "/players";
-  // const postPlayerURL = localUrl + "/players"
   req.body.jerseyNumber = Number(req.body.jerseyNumber);
   req.body.height = Number(req.body.height);
-  // console.log(req.body)
 
   postJson(postPlayerURL, req.body).then((data) => {
     let newPlayer = req.body;
@@ -114,9 +125,8 @@ server.post("/playerform", async (req, res) => {
   res.redirect("/");
 });
 
+// Add fact form
 server.post("/factform", async (req, res) => {
-  // console.log(req.body)
-
   const postFactUrl = apiUrl + "/facts";
 
   postJson(postFactUrl, req.body).then((data) => {
@@ -136,9 +146,8 @@ server.post("/factform", async (req, res) => {
   res.redirect("/")
 });
 
+// Add question form
 server.post("/questionform", async (req, res) => {
-  // console.log(req.body)
-
   const postQuestionUrl = apiUrl + "/questions";
 
   postJson(postQuestionUrl, req.body).then((data) => {
@@ -179,11 +188,12 @@ server.post("/teamform", async (req, res) => {
         error: errormessage,
         values: newTeam
       };
-      // console.error(errormessage)
     }
   });
   res.redirect("/");
 });
+
+/* ----------------------------- Other functions ---------------------------- */
 
 // Api call function
 async function dataFetch(url) {
