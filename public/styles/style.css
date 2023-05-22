@@ -300,7 +300,7 @@ body{
 .team-players{
     display: flex;
     flex-direction: column;
-    row-gap: 0.05em;
+    row-gap: 0.1em;
     /* margin-bottom: auto; */
     height: calc(100vh - (var(--padding-allround) * 2));
 }
