@@ -1,4 +1,4 @@
-<% 
+<%
 let goal = gameStats.stats[0].point.filter(pt => pt.scoredBy.id === player.id).length
 let assist = gameStats.stats[0].point.filter(pt => pt.assistBy.id === player.id).length
 
@@ -10,7 +10,7 @@ let turnover = gameStats.stats[0].point.reduce((count, pt) => {
     return (pt.turnoverPlayers ? count = count + pt.turnoverPlayers.filter(tp => tp.id === player.id).length : count = 0)
 }, 0)
 
-const actions = ["goal", "assist", "block", "turnover"] 
+const actions = ["goal", "assist", "block", "turnover"]
 
 actions.forEach(action => {
     if (eval(action) > 0) { %>

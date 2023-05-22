@@ -1,25 +1,26 @@
-import express from "express";
-import bodyParser from "body-parser";
+import express from "express"
+import bodyParser from "body-parser"
+import * as path from "path"
 import { createServer } from 'http'
 import { Server } from 'socket.io'
 
-const server = express();
+const server = express()
 const http = createServer(server)
 const io = new Server(http)
 // Api url
-const apiUrl = "https://ultitv-api.netlify.app/api/v2";
-const localUrl = "http://localhost:5173/api/v2";
+const apiUrl = "https://ultitv-api.netlify.app/api/v2"
+const localUrl = "http://localhost:5173/api/v2"
 
-server.set("view engine", "ejs");
-server.set("views", "./views");
-server.set("port", process.env.PORT || 8000);
+server.set("view engine", "ejs")
+server.set("views", "./views")
+server.set("port", process.env.PORT || 8000)
 
-server.use(express.static("public"));
+server.use(express.static(path.resolve('public')))
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({extended: true}));
+server.use(bodyParser.urlencoded({extended: true}))
 
 http.listen(server.get("port"), () => {
-	console.log(`Application started on http://localhost:${server.get("port")}`);
+	console.log(`Application started on http://localhost:${server.get("port")}`)
 });
 
 io.on('connection', (socket) => {
@@ -36,13 +37,12 @@ server.get("/", async (req, res) => {
 })
 
 server.get("/commentate", async (req, res) => {
-    // TODO - Variable game id
     const gameData = await dataFetch(`${apiUrl}/games?id=111`)
     const playerData = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC&first=100`)
     const gameStats = await dataFetch(`${apiUrl}/stats?id=111`)
 
-    const allTeams = await dataFetch(`${apiUrl}/teams`);
-    const questionData = await dataFetch(`${apiUrl}/questions?type=Player`);
+    const allTeams = await dataFetch(`${apiUrl}/teams`)
+    const questionData = await dataFetch(`${apiUrl}/questions?type=Player`)
 
     res.render("commentate", {
 		gameData,
@@ -50,8 +50,25 @@ server.get("/commentate", async (req, res) => {
 		gameStats,
 		allTeams,
 		questionData
-    });
-});
+    })
+})
+
+server.get("/commentate/:id", async (req, res) => {
+    const gameData = await dataFetch(`${apiUrl}/games?id=${req.params.id}`)
+    const playerData = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC&first=100`)
+    const gameStats = await dataFetch(`${apiUrl}/stats?id=${req.params.id}`)
+
+    const allTeams = await dataFetch(`${apiUrl}/teams`);
+    const questionData = await dataFetch(`${apiUrl}/questions?type=Player`)
+
+    res.render("commentate", {
+    gameData,
+    playerData,
+    gameStats,
+    allTeams,
+    questionData
+    })
+})
 
 server.get("/forms", async (req, res) => {
 	const allTeams = await dataFetch(`${apiUrl}/teams`);
@@ -103,20 +120,20 @@ server.post("/factform", async (req, res) => {
   const postFactUrl = apiUrl + "/facts";
 
   postJson(postFactUrl, req.body).then((data) => {
-    let newFact = req.body;
+    let newFact = req.body
 
     if (data.succes) {
-      res.redirect("/?memberPosted=true");
+      res.redirect("/?memberPosted=true")
     } else {
-      const errormessage = `${data.message}`;
+      const errormessage = `${data.message}`
       const newteam = {
         error: errormessage,
         values: newFact
       };
-      console.error(errormessage);
+      console.error(errormessage)
     }
   });
-  res.redirect("/");
+  res.redirect("/")
 });
 
 server.post("/questionform", async (req, res) => {

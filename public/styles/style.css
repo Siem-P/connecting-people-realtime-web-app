@@ -7,6 +7,14 @@
     --dark-green-hover: #023030;
     --text-color: #ffffff;
 
+    --component-bg: #106464;
+    --main-bg: #003434 ;
+    --card-bg: #1e4545;
+
+    --padding-allround: 0.6rem;
+    --padding-allround-lg: 1rem;
+    --border-radius-allround: 0.5rem;
+
     --goal-green: #096F19;
     --assist-blue: #1757A1;
     --block-red: #841313;
@@ -32,13 +40,235 @@
 }
 
 body{
-    background: var(--primary-color);
+    background: var(--main-bg);
     font: 100%/1.4 "Roboto Slab", monospace;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Schedule                                  */
+/* -------------------------------------------------------------------------- */
+.schedule-main{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: var(--padding-allround);
+}
+
+.schedule{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--component-bg);
+    border-radius: var(--border-radius-allround);
+    padding: var(--padding-allround-lg);
+
+}
+
+.schedule-heading{
+    color: white;
+}
+
+.schedule-row{
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-date{
+    font-size: 1.2rem;
+    color: var(--tertiary);
+    font-weight: 400;
+}
+
+.game-cards{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.game-card{
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    /* width: 35%; */
+    border-radius: var(--border-radius-allround);
+    padding: var(--padding-allround);
+    gap: 0.6rem;
+}
+
+.card-top{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.card-top-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-top-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team-logo{
+    width: 5rem;
+    height: auto;
+}
+
+.schedule .team-name{
+    font-size: 1rem;
+    color: white;
+}
+
+.card-top-center{
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: var(--padding-allround);
+    font-size: 1.5rem;
+}
+
+.card-divider{
+    width: 100%;
+    height: 0.1rem;
+    margin: 0 auto;
+    background: var(--tertiary);
+}
+
+.card-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.card-tags{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.6rem;
+    max-width: 16rem;
+}
+
+.tag{
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--border-radius-allround);
+    font-size: 0.8rem;
+}
+
+.tag:nth-child(odd){
+    background: var(--assist-blue);
+}
+
+.tag:nth-child(even){
+    background: var(--goal-green);
+}
+
+.card-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+    justify-content: flex-start;
+}
+
+.card-link{
+    background: var(--dark-green);
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.card-btn-svg{
+    width: auto;
+    height: 1rem;
+    margin-right: 0.4rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Commentate                                 */
+/* -------------------------------------------------------------------------- */
+.commentate-main{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: var(--padding-allround);
+}
+
+.component{
+    background-color: var(--component-bg);
+    border-radius: var(--border-radius-allround);
+    padding: var(--padding-allround);
 }
 
 /* -------------------------------------------------------------------------- */
 /*                           Heading with game info                           */
 /* -------------------------------------------------------------------------- */
+.header{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-sm{
+    width: 1.2rem;
+    height: auto;
+}
+
+.scroll-text-container{
+    overflow: hidden;
+    display: flex;
+    width: 80%;
+    white-space: nowrap;
+}
+
+.scroll-text{
+    animation: scrollText 10s linear infinite;
+}
+
+.scroll-text span{
+    margin-right: 0.1rem;
+    color: white;
+    font-weight: 300;
+}
+
+@keyframes scrollText{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+.live-icon{
+    color: white;
+    position: relative;
+}
+
+.live-icon::before{
+    position: absolute;
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    background: red;
+    border-radius: 50%;
+    margin-right: 0.2rem;
+    left: -0.6rem;
+    top: 25%;
+}
 
 
 /* -------------------------------------------------------------------------- */
@@ -74,7 +304,7 @@ body{
     z-index: 2;
 }
 
-.team-name{
+.players .team-name{
     font-size: 1.1rem;
     width: 75%;
 }
@@ -279,47 +509,38 @@ body{
 /* -------------------------------------------------------------------------- */
 
 @media (min-width: 48rem){
-    main{
+    .commentate-main{
         display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(12, minmax(0, 1fr));
         grid-template-rows: auto;
         column-gap: 5px;
     }
 
-    header{
-        grid-column: 1 / 7;
+    .header{
+        grid-column: 5 / 9;
     }
 
     .game-score{
-        grid-column: 1 / 7;
+        grid-column: 5 / 9;
         grid-row: 2 / 3;
     }
 
-    .navigation{
-        grid-column: 1 / 7;
-        grid-row: 4 / 5;
-    }
-
     .team-one-players{
-        grid-column: 1 / 4;
-        grid-row: 5 / 6;
+        grid-column: 1 / 5;
+        grid-row: 1 / 6;
     }
 
     .team-two-players{
-        grid-column: 4 / 7;
-        grid-row: 5 / 6;
+        grid-column: 9 / 13;
+        grid-row: 1 / 6;
     }
 
     .scoreboard{
-        grid-column: 1 / 7;
+        grid-column: 5 / 9;
         grid-row: 3 / 4;
     }
 
     /* --------------------------------- Players -------------------------------- */
-
-    .team-players{
-        margin-top: 2em;
-    }
 
     .team-two-players .players-heading{
         flex-direction: row-reverse;
@@ -372,51 +593,5 @@ body{
 
     .fact-answer{
         font-size: 1em;
-    }
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                Desktop size                                */
-/* -------------------------------------------------------------------------- */
-@media (min-width: 90rem){
-    main{
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        grid-template-rows: auto;
-        column-gap: unset;
-    }
-
-    header{
-        grid-column: 5 / 9;
-        grid-row: 1 / 2;
-    }
-
-    .game-score{
-        grid-column: 5 / 9;
-        grid-row: 2 / 3;
-    }
-
-    .scoreboard{
-        grid-column: 5 / 9;
-        grid-row: 3 / 4;
-    }
-
-    .navigation{
-        display: none;
-    }
-
-    .team-one-players{
-        grid-column: 1 / 5;
-        grid-row: 1 / 5;
-    }
-
-    .team-two-players{
-        grid-column: 9 / 13;
-        grid-row: 1 / 5;
-    }
-
-    .team-players{
-        margin-top: unset;
-        overflow-y: scroll;
-        max-height: 100vh;
     }
 }
