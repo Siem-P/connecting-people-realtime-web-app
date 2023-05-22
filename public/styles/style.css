@@ -230,7 +230,7 @@ body{
 .scroll-text-container{
     overflow: hidden;
     display: flex;
-    width: 80%;
+    width: 75%;
     white-space: nowrap;
 }
 
@@ -265,9 +265,9 @@ body{
     height: 0.5rem;
     background: red;
     border-radius: 50%;
-    margin-right: 0.2rem;
-    left: -0.6rem;
-    top: 25%;
+    margin-right: 0.25rem;
+    left: -0.7rem;
+    top: 33%;
 }
 
 .unalive::before{
@@ -300,7 +300,9 @@ body{
 .team-players{
     display: flex;
     flex-direction: column;
-    row-gap: 0.3em;
+    row-gap: 0.05em;
+    /* margin-bottom: auto; */
+    height: calc(100vh - (var(--padding-allround) * 2));
 }
 
 /* --------------------------- Team name & legend --------------------------- */
@@ -308,42 +310,31 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background: var(--secondary-color);
+    padding: var(--padding-allround);
     color: #fff;
     position: sticky;
     top: 0;
     z-index: 2;
 }
 
-.players .team-name{
+.players-heading .team-name{
     font-size: 1.1rem;
     width: 75%;
-}
-
-.legend{
-    display: flex;
-    justify-content: flex-end;
-    font-size: 1.1rem;
-    column-gap: 0.7em;
-    width: 25%;
-}
-
-.legend p{
-    text-align: center;
 }
 
 /* ------------------------------- Player row ------------------------------- */
 .player-card{
     display: flex;
     justify-content: space-between;
-    padding: 0.6em 1em;
+    padding: 0.3em 1em;
     background: var(--dark-green);
+    border: none;
+    border-radius: var(--border-radius-allround);
 }
 
 .player-card:hover{
-    cursor: pointer;
     background: var(--primary-color-lighter);
+    cursor: pointer;
 }
 
 .card-left{
@@ -351,7 +342,7 @@ body{
     flex-direction: row;
     align-items: center;
     column-gap: 0.5em;
-    width: 75%;
+    width: 66%;
 }
 
 .player-number{
@@ -361,10 +352,11 @@ body{
 }
 
 .player-name{
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: white;
     width: 65%;
-    word-break: break-all;
+    word-break: break-word;
+    text-align: left;
 }
 
 .card-right{
@@ -381,7 +373,7 @@ body{
 
 .action{
     color: white;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     font-family: 'Roboto Mono';
     border-radius: 0.5rem;
     padding: 0.1em 0.2em;
@@ -405,7 +397,7 @@ body{
 }
 
 .reduced-opacity{
-    opacity: 0.3;
+    opacity: 0.15;
 }
 
 /* ------------------------------ Player modal ------------------------------ */
@@ -452,15 +444,12 @@ body{
     display: block;
     margin-right: 0.5em;
     color: white;
+    padding: 0.3rem;
 }
 
 .close-dialog:hover{
     cursor: pointer;
     transform: scale(1.1);
-}
-
-.close-dialog:focus-visible{
-    outline: none;
 }
 
 .dialog-content{
@@ -560,10 +549,6 @@ body{
 
     .team-two-players .team-name{
         text-align: right;
-    }
-
-    .team-two-players .legend{
-        flex-direction: row-reverse;
     }
 
     .team-two-players .player-card{

@@ -1,14 +1,8 @@
 <!-- Team 1 -->
-<section class="team-players team-one-players nav-blocks">
+<section class="team-players team-one-players nav-blocks component">
 	<!-- Team name & legend -->
 	<div class="players-heading">
 		<h2 class="team-name"><%- gameData.games[0].team1.name %></h2>
-		<div class="legend">
-			<p>G</p>
-			<p>A</p>
-			<p>B</p>
-			<p>T</p>
-		</div>
 	</div>
 
 	<!-- Get all players from team 1 -->
@@ -16,7 +10,7 @@
 
 	<% team1Players.forEach(player => { %>
 	<!-- Player row -->
-	<div class="player-card">
+	<button class="player-card">
 		<div class="card-left">
 			<p class="player-number"><%- player.jerseyNumber %></p>
 			<p class="player-name"><%- player.name %></p>
@@ -26,7 +20,7 @@
 				<%- include('./Actions', { player: player, gameStats }) %>
 			</div>
 		</div>
-	</div>
+	</button>
 
 	<!-- Player facts -->
 	<%- include('./FactsModal', { player }) %>
