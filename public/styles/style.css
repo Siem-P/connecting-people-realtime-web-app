@@ -290,6 +290,35 @@ body{
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                Players page                                */
+/* -------------------------------------------------------------------------- */
+.player-cards{
+    display: flex;
+    flex-flow: column;
+    /* flex-wrap: wrap; */
+    gap: 0.1rem;
+    margin-top: 1rem;
+}
+
+.team-player-card{
+    display: flex;
+    flex-direction: row;
+    background: var(--card-bg);
+    border-radius: var(--border-radius-allround);
+    padding: 0.3em 1em;
+    align-items: center;
+    max-width: 45%;
+}
+
+.team-player-card-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                                 Commentate                                 */
 /* -------------------------------------------------------------------------- */
 .commentate-main{
