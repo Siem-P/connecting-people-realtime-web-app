@@ -51,6 +51,7 @@ body{
 .schedule-main{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     gap: 1rem;
     padding: var(--padding-allround);
 }
@@ -58,7 +59,7 @@ body{
 .schedule-content-wrapper {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
 }
 
 .schedule{
@@ -301,10 +302,7 @@ body{
 
 .aside-navbar {
     display: flex;
-    right: 0;
-    position: relative;
     background-color: #004B4B;
-    width: 10%;
 }
 
 .navigation {
@@ -327,6 +325,7 @@ body{
 
 .company-name {
     font-size: small;
+    color: var(--text-color);
 }
 
 .live-indicator {
@@ -351,7 +350,7 @@ body{
 }
 
 .nav-links a {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
 }
 
