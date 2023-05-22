@@ -37,6 +37,7 @@
     padding: 0;
     box-sizing: border-box;
     /* color: var(--text-color); */
+    outline: 1px solid white;
 }
 
 body{
@@ -49,19 +50,25 @@ body{
 /* -------------------------------------------------------------------------- */
 .schedule-main{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     padding: var(--padding-allround);
+}
+
+.schedule-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
 }
 
 .schedule{
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 2rem;
     background: var(--component-bg);
     border-radius: var(--border-radius-allround);
     padding: var(--padding-allround-lg);
-
 }
 
 .schedule-heading{
@@ -265,9 +272,9 @@ body{
     height: 0.5rem;
     background: red;
     border-radius: 50%;
-    margin-right: 0.2rem;
-    left: -0.6rem;
-    top: 25%;
+    margin-right: 0.3rem;
+    left: -1rem;
+    top: 33%;
 }
 
 .unalive::before{
@@ -289,7 +296,73 @@ body{
 
 
 /* -------------------------------------------------------------------------- */
-/*                                   Players                                  */
+/*                             Navigation Sidebar                                 */
+/* -------------------------------------------------------------------------- */
+
+.aside-navbar {
+    display: flex;
+    right: 0;
+    position: relative;
+    background-color: #004B4B;
+    width: 10%;
+}
+
+.navigation {
+    display: inline-block;
+}
+
+.company-info-wrapper {
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    border-bottom: 3px solid white;
+}
+
+.company-icon {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.company-name {
+    font-size: small;
+}
+
+.live-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em;
+}
+
+.nav-links {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    padding: 0.5em;
+    margin-left: 0.5em;
+}
+
+.nav-link-wrapper {
+    display: flex;
+    gap: 0.3em;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-icons {
+    width: 1.1em;
+    height: auto;
+    
+}
+/* -------------------------------------------------------------------------- */
+/*    
+                               Players                                  */
 /* -------------------------------------------------------------------------- */
 .players{
     display: flex;
@@ -606,4 +679,4 @@ body{
     .fact-answer{
         font-size: 1em;
     }
-}
+} 
