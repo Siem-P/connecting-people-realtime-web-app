@@ -1,0 +1,34 @@
+<%- include('./partials/head') %>
+
+<main class="schedule-main">
+
+	<!-- Heading with logo -->
+	<div class="logo-lg">
+		<img src="./assets/logo-text-svg.svg" alt="Commentary Source logo" class="logo-text">
+	</div>
+
+    <section class="teams component">
+        <div class="teams-header">
+            <h1 class="teams-heading">Teams</h1>
+            <div class="teams-buttons">
+                <div class="filter-buttons">
+                    <button class="filter-btn assist">All</button>
+                    <button class="filter-btn goal">Mixed</button>
+                </div>
+                <button class="card-link">+ Add Team</button>
+            </div>
+        </div>
+
+        <div class="team-cards">
+            <% allTeams.teams.forEach(team => { %>
+                <!-- Team card -->
+                <%- include('./modules/Teams/TeamCard', { team }) %>
+            <% }) %>
+        </div>
+    </section>
+
+	<!-- Sidebar nav -->
+    <%- include('./modules/AsideNav') %>
+
+</main>
+<%- include('./partials/footer') %>

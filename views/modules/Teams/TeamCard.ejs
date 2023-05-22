@@ -1,0 +1,34 @@
+<div class="team-card">
+    <!-- Left side of card -->
+    <div class="team-card-left">
+        <img src="./assets/<%- team.name.toLowerCase() %>.svg" alt="Team 1 logo" class="team-logo">
+    </div>
+
+    <!-- Right side of card -->
+    <div class="team-card-right">
+        <!-- Top right of card -->
+        <div class="team-card-right-top">
+            <p class="team-name"><%- team.name %></p>
+        </div>
+
+        <!-- Middle of game card -->
+        <div class="card-divider"></div>
+
+        <!-- Bottom right of card -->
+        <div class="team-card-right-bottom">
+            <!-- Card tags -->
+            <div class="team-card-right-bottom-left">
+                <p class="tag"><%- team.iso3 %></p>
+                <p class="tag"><%- team.seeding %></p>
+            </div>
+
+            <!-- Card button -->
+            <div class="team-card-right-bottom-right">
+                <a class="card-link" href="/players/<%- team.id %>">
+                    <img src="./assets/details.svg" alt="Details icon" class="card-btn-svg">
+                    Details
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
