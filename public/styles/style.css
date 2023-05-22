@@ -295,9 +295,10 @@ body{
 .player-cards{
     display: flex;
     flex-flow: column;
-    /* flex-wrap: wrap; */
     gap: 0.1rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
+    height: 50vh;
 }
 
 .team-player-card{
@@ -308,6 +309,7 @@ body{
     padding: 0.3em 1em;
     align-items: center;
     max-width: 45%;
+    height: 2.5rem;
 }
 
 .team-player-card-left{
