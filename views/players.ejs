@@ -1,31 +1,32 @@
 <%- include('./partials/head') %>
 
 <main class="schedule-main">
+    <div class="schedule-content-wrapper">
+        <!-- Heading with logo -->
+        <div class="logo-lg">
+            <img src="/assets/logo-text-svg.svg" alt="Commentary Source logo" class="logo-text">
+        </div>
 
-	<!-- Heading with logo -->
-	<div class="logo-lg">
-		<img src="/assets/logo-text-svg.svg" alt="Commentary Source logo" class="logo-text">
-	</div>
-
-    <section class="teams component">
-        <div class="teams-header">
-            <h1 class="teams-heading">Players</h1>
-            <div class="teams-buttons">
-                <div class="filter-buttons">
-                    <button class="filter-btn assist">All</button>
-                    <button class="filter-btn goal">Mixed</button>
+        <section class="teams component">
+            <div class="teams-header">
+                <h1 class="teams-heading">Players</h1>
+                <div class="teams-buttons">
+                    <div class="filter-buttons">
+                        <button class="filter-btn assist">All</button>
+                        <button class="filter-btn goal">Mixed</button>
+                    </div>
+                    <button class="card-link">+ Add Player</button>
                 </div>
-                <button class="card-link">+ Add Player</button>
             </div>
-        </div>
 
-        <div class="player-cards">
-            <% teamPlayers.forEach(player => { %>
-                <!-- Player card -->
-                <%- include('./modules/Players/PlayerCard', { player }) %>
-            <% }) %>
-        </div>
-    </section>
+            <div class="player-cards">
+                <% teamPlayers.forEach(player => { %>
+                    <!-- Player card -->
+                    <%- include('./modules/Players/PlayerCard', { player }) %>
+                <% }) %>
+            </div>
+        </section>
+    </div>
 
 	<!-- Sidebar nav -->
     <%- include('./modules/AsideNav') %>

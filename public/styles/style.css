@@ -37,12 +37,17 @@
     padding: 0;
     box-sizing: border-box;
     /* color: var(--text-color); */
-    outline: 1px solid white;
+    /* outline: 1px solid white; */
+}
+
+html{
+    height: 100%;
 }
 
 body{
     background: var(--main-bg);
     font: 100%/1.4 "Roboto Slab", monospace;
+    height: 100%;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -52,8 +57,8 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 1rem;
-    padding: var(--padding-allround);
+    height: 100%;
+    /* padding: var(--padding-allround); */
 }
 
 .schedule-content-wrapper {
@@ -65,15 +70,19 @@ body{
 .schedule{
     display: flex;
     flex-direction: column;
-    width: 100%;
     gap: 2rem;
     background: var(--component-bg);
     border-radius: var(--border-radius-allround);
     padding: var(--padding-allround-lg);
+    margin: var(--padding-allround);
 }
 
 .schedule-heading{
     color: white;
+}
+
+.logo-lg{
+    margin: var(--padding-allround);
 }
 
 .schedule-row{
@@ -218,6 +227,7 @@ body{
     background: var(--component-bg);
     border-radius: var(--border-radius-allround);
     padding: var(--padding-allround-lg);
+    margin: var(--padding-allround);
 }
 
 .teams-header{
@@ -506,10 +516,10 @@ body{
 .nav-icons {
     width: 1.1em;
     height: auto;
-    
+
 }
 /* -------------------------------------------------------------------------- */
-/*    
+/*
                                Players                                  */
 /* -------------------------------------------------------------------------- */
 .players{
@@ -818,4 +828,4 @@ body{
     .fact-answer{
         font-size: 1em;
     }
-} 
+}
