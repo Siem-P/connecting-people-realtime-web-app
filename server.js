@@ -81,6 +81,10 @@ server.get("/teams", async (req, res) => {
     res.render("teams", { allTeams })
 })
 
+server.get("/addteam", async (req, res) => {
+    res.render("addteam")
+})
+
 /* --------------------------------- Players -------------------------------- */
 server.get("/players", async (req, res) => {
     res.redirect("/teams")
@@ -91,6 +95,24 @@ server.get("/players/:id", async (req, res) => {
 
     const teamPlayers = allPlayers.players.filter(player => player.team.id === req.params.id)
     res.render("players", { teamPlayers })
+})
+
+server.get("/addplayer", async (req, res) => {
+    const allTeams = await dataFetch(`${apiUrl}/teams`);
+    res.render("addplayer", { allTeams })
+})
+
+/* ------------------------------ Player detail ----------------------------- */
+server.get("/playerdetail/:id", async (req, res) => {
+    const playerData = await dataFetch(`${apiUrl}/players?id=${req.params.id}`)
+
+    res.render("playerdetail", { playerData })
+})
+
+/* ---------------------------------- Facts --------------------------------- */
+server.get("/addfact", async (req, res) => {
+    const allFacts = await dataFetch(`${apiUrl}/facts`)
+    res.render("facts", { allFacts })
 })
 
 /* ---------------------------------- Forms --------------------------------- */
