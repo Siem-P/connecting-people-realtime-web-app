@@ -97,6 +97,11 @@ server.get("/players/:id", async (req, res) => {
     res.render("players", { teamPlayers })
 })
 
+server.get("/addplayer", async (req, res) => {
+    const allTeams = await dataFetch(`${apiUrl}/teams`);
+    res.render("addplayer", { allTeams })
+})
+
 /* ---------------------------------- Forms --------------------------------- */
 
 server.get("/forms", async (req, res) => {

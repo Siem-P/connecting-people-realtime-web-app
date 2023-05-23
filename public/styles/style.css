@@ -346,6 +346,12 @@ body{
     color: white;
 }
 
+.form-group select{
+    border-radius: var(--border-radius-allround);
+    border: none;
+    padding: 0.4rem;
+}
+
 .form-group label{
     padding-left: 0.3rem;
 }
@@ -354,6 +360,28 @@ body{
     border-radius: var(--border-radius-allround);
     border: none;
     padding: 0.4rem;
+}
+
+.form-content fieldset{
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius-allround);
+}
+
+.form-content fieldset .form-group{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.form-content fieldset legend{
+    color: white;
+    padding: 0 0.4rem;
+}
+
+.form-content fieldset legend input{
+    margin-right: 0.4rem;
 }
 
 .form-submit{
