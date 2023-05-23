@@ -308,6 +308,63 @@ body{
     gap: 0.6rem;
 }
 
+/* -------------------------------- Add team -------------------------------- */
+.team-form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--component-bg);
+    border-radius: var(--border-radius-allround);
+    padding: var(--padding-allround-lg);
+    margin: var(--padding-allround);
+}
+
+.team-form-heading{
+    color: white;
+}
+
+.add-team-form{
+    /* border: 1px solid var(--dark-green); */
+    border-radius: var(--border-radius-allround);
+    padding: var(--padding-allround);
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    max-width: 25rem;
+}
+
+.form-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    color: white;
+}
+
+.form-group label{
+    padding-left: 0.3rem;
+}
+
+.form-group input{
+    border-radius: var(--border-radius-allround);
+    border: none;
+    padding: 0.4rem;
+}
+
+.form-submit{
+    max-width: 11.6rem;
+    border-radius: var(--border-radius-allround);
+    padding: 0.4rem;
+    border: none;
+    background: var(--dark-green);
+    color: white;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                Players page                                */
 /* -------------------------------------------------------------------------- */

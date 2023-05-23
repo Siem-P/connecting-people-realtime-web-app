@@ -81,6 +81,10 @@ server.get("/teams", async (req, res) => {
     res.render("teams", { allTeams })
 })
 
+server.get("/addteam", async (req, res) => {
+    res.render("addteam")
+})
+
 /* --------------------------------- Players -------------------------------- */
 server.get("/players", async (req, res) => {
     res.redirect("/teams")
