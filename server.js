@@ -81,6 +81,18 @@ server.get("/teams", async (req, res) => {
     res.render("teams", { allTeams })
 })
 
+/* --------------------------------- Players -------------------------------- */
+server.get("/players", async (req, res) => {
+    res.redirect("/teams")
+})
+
+server.get("/players/:id", async (req, res) => {
+    const allPlayers = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC&first=100`)
+
+    const teamPlayers = allPlayers.players.filter(player => player.team.id === req.params.id)
+    res.render("players", { teamPlayers })
+})
+
 /* ---------------------------------- Forms --------------------------------- */
 
 server.get("/forms", async (req, res) => {
