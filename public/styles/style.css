@@ -662,6 +662,7 @@ body{
     background-color: #004B4B;
     transition: all 0.5s ease;
     width: 5em;
+    overflow: hidden;
 }
 
 .aside-navbar.active {
@@ -671,17 +672,17 @@ body{
 .aside-navbar #nav-button {
     position: absolute;
     color: var(--text-color);
-    top: .6rem;
+    top: .9rem;
     left: 50%;
-    /* font-size: 1.2rem; */
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0);
     border: none;
+    z-index: 2;
 }
 
 #nav-button svg {
     fill: white;
-    width: 2em;
+    width: 2.5em;
 }
 
 .aside-navbar.active #nav-button {
@@ -694,17 +695,21 @@ body{
 }
 
 .company-info-wrapper {
+    transform: translateX(10em);
     display: flex;
-    justify-content: center;
-    margin-top: 2em;
+    justify-content: flex-end;
+    /* margin-right: 15em; */
     width: 100%;
     padding: 1em;
     opacity: 0;
 }
 
 .aside-navbar.active .company-info-wrapper {
-    margin-top: 2;
+    margin-left: 0;
+    transform: translateX(0);
     opacity: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .company-icon {
@@ -716,18 +721,18 @@ body{
 
 .company-icon img {
     margin-right: 0.5em;
+    width: 1em;
 }
 
-
 .company-icon span {
-    font-size: small;
+    font-size: smaller;
     color: var(--text-color);
 }
 
 .live-indicator {
     display: flex;
     justify-content: flex-end;
-    /* margin: 0.5em; */
+    margin-top: 1em;
     font-weight: 600;
     letter-spacing: 2px;
 }
@@ -751,29 +756,56 @@ body{
     margin-top: 1em;
     display: flex;
     flex-direction: column;
-    gap: 0.7em;
+    /* gap: 0.7em; */
     padding: 0.5em;
-    margin-left: 0.5em;
 }
 
 .nav-link-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 0.3em;
+    position: relative;
+    width: 90%;
+    height: 50px;
+    margin: 0.8em auto;
+    line-height: 40px;
 }
+
 
 .nav-link-wrapper a {
     color: var(--text-color);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    /* border-radius: 0.8em; */
+    border-radius: 0.8em;
 }
 
+.aside-navbar .nav-link-wrapper a:hover {
+    background-color: var(--component-bg);
+    color: var(--text-color);
+}
+
+.aside-navbar .nav-link-wrapper a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 0.8em;
+    line-height: 50px;
+}
 
 .nav-icons {
     width: 1.5em;
     height: auto;
-
 }
+
+.aside-navbar .nav-item { 
+    opacity: 0;
+}
+
+.aside-navbar.active .nav-item {
+    opacity: 1;
+}
+
+
 /* -------------------------------------------------------------------------- */
 /*
                                Players                                  */
