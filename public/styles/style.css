@@ -461,40 +461,96 @@ body{
 
 .aside-navbar {
     display: flex;
+    position: relative;
     background-color: #004B4B;
+    transition: all 0.5s ease;
+    width: 5em;
+}
+
+.aside-navbar.active {
+    width: 17em;
+}
+
+.aside-navbar #nav-button {
+    position: absolute;
+    color: var(--text-color);
+    top: .6rem;
+    left: 50%;
+    /* font-size: 1.2rem; */
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+#nav-button svg {
+    fill: white;
+    width: 2em;
+}
+
+.aside-navbar.active #nav-button {
+    left: 10%
 }
 
 .navigation {
     display: inline-block;
+    width: 100%;
 }
 
 .company-info-wrapper {
     display: flex;
+    justify-content: center;
+    margin-top: 2em;
     width: 100%;
     padding: 1em;
-    border-bottom: 3px solid white;
+    opacity: 0;
+}
+
+.aside-navbar.active .company-info-wrapper {
+    margin-top: 2;
+    opacity: 1;
 }
 
 .company-icon {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 8em;
     height: auto;
 }
 
-.company-name {
+.company-icon img {
+    margin-right: 0.5em;
+}
+
+
+.company-icon span {
     font-size: small;
     color: var(--text-color);
 }
 
 .live-indicator {
     display: flex;
+    justify-content: flex-end;
+    /* margin: 0.5em; */
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.aside-navbar.active .live-indicator {
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.5em;
+}
+
+.live-indicator p span {
+    opacity: 0;
+}
+
+.aside-navbar.active .live-indicator p span{
+    opacity: 1;
 }
 
 .nav-links {
+    position: relative;
     margin-top: 1em;
     display: flex;
     flex-direction: column;
@@ -505,16 +561,19 @@ body{
 
 .nav-link-wrapper {
     display: flex;
+    flex-direction: column;
     gap: 0.3em;
 }
 
-.nav-links a {
+.nav-link-wrapper a {
     color: var(--text-color);
     text-decoration: none;
+    /* border-radius: 0.8em; */
 }
 
+
 .nav-icons {
-    width: 1.1em;
+    width: 1.5em;
     height: auto;
 
 }
