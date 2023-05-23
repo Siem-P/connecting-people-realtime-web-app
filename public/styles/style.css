@@ -37,6 +37,7 @@
     padding: 0;
     box-sizing: border-box;
     /* color: var(--text-color); */
+    outline: 1px solid white;
 }
 
 body{
@@ -49,14 +50,22 @@ body{
 /* -------------------------------------------------------------------------- */
 .schedule-main{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 1rem;
     padding: var(--padding-allround);
+}
+
+.schedule-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .schedule{
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 2rem;
     background: var(--component-bg);
     border-radius: var(--border-radius-allround);
@@ -437,7 +446,71 @@ body{
 
 
 /* -------------------------------------------------------------------------- */
-/*                                   Players                                  */
+/*                             Navigation Sidebar                                 */
+/* -------------------------------------------------------------------------- */
+
+.aside-navbar {
+    display: flex;
+    background-color: #004B4B;
+}
+
+.navigation {
+    display: inline-block;
+}
+
+.company-info-wrapper {
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    border-bottom: 3px solid white;
+}
+
+.company-icon {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.company-name {
+    font-size: small;
+    color: var(--text-color);
+}
+
+.live-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em;
+}
+
+.nav-links {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    padding: 0.5em;
+    margin-left: 0.5em;
+}
+
+.nav-link-wrapper {
+    display: flex;
+    gap: 0.3em;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.nav-icons {
+    width: 1.1em;
+    height: auto;
+    
+}
+/* -------------------------------------------------------------------------- */
+/*    
+                               Players                                  */
 /* -------------------------------------------------------------------------- */
 .players{
     display: flex;
@@ -745,4 +818,4 @@ body{
     .fact-answer{
         font-size: 1em;
     }
-}
+} 

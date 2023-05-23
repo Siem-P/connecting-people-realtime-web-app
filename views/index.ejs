@@ -1,44 +1,46 @@
 <%- include('./partials/head') %>
 
 <main class="schedule-main">
+  <div class="schedule-content-wrapper">
+    <!-- Heading with logo -->
+    <div class="logo-lg">
+      <img
+        src="./assets/logo-text-svg.svg"
+        alt="Commentary Source logo"
+        class="logo-text"
+      />
+    </div>
 
-	<!-- Heading with logo -->
-	<div class="logo-lg">
-		<img src="./assets/logo-text-svg.svg" alt="Commentary Source logo" class="logo-text">
-	</div>
+    <!-- Tournament Schedule -->
+    <section class="schedule">
+      <h1 class="schedule-heading">Tournament Schedule</h1>
 
-	<!-- Tournament Schedule -->
-	<section class="schedule">
-		<h1 class="schedule-heading">Tournament Schedule</h1>
+      <!-- First row games -->
+      <div class="schedule-row">
+        <h2 class="schedule-date">01 WED</h2>
 
-		<!-- First row games -->
-		<div class="schedule-row">
-			<h2 class="schedule-date">01 WED</h2>
+        <!-- Game cards -->
+        <div class="game-cards">
+          <% allGames.games.forEach(game => { %>
+          <!-- Game card -->
+          <%- include('./modules/Schedule/GameCard', { game }) %> <% }) %>
+        </div>
+      </div>
 
-			<!-- Game cards -->
-			<div class="game-cards">
-				<% allGames.games.forEach(game => { %>
-					<!-- Game card -->
-					<%- include('./modules/Schedule/GameCard', { game }) %>
-				<% }) %>
-			</div>
-		</div>
+      <!-- Second row games -->
+      <div class="schedule-row">
+        <h2 class="schedule-date">02 THU</h2>
+        <!-- Game cards -->
+        <div class="game-cards">
+          <% allGames.games.forEach(game => { %>
+          <!-- Game card -->
+          <%- include('./modules/Schedule/GameCard', { game }) %> <% }) %>
+        </div>
+      </div>
+    </section>
+  </div>
 
-		<!-- Second row games -->
-		<div class="schedule-row">
-			<h2 class="schedule-date">02 THU</h2>
-			<!-- Game cards -->
-			<div class="game-cards">
-				<% allGames.games.forEach(game => { %>
-					<!-- Game card -->
-					<%- include('./modules/Schedule/GameCard', { game }) %>
-				<% }) %>
-			</div>
-		</div>
-	</section>
-
-	<!-- Sidebar nav -->
-	<%- include('./modules/AsideNav') %>
-
+  <!-- Sidebar nav -->
+  <%- include('./modules/AsideNav') %>
 </main>
 <%- include('./partials/footer') %>
