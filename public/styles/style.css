@@ -651,6 +651,41 @@ body{
 /*                                 Game Score                                 */
 /* -------------------------------------------------------------------------- */
 
+.gamescore {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-score-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 9em;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo .team-name {
+    text-align: center;
+}
+
+.game-stat-buttons {
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+    /* border-radius: ; */
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                             Navigation Sidebar                                 */
@@ -1046,7 +1081,7 @@ body{
         grid-row: 2 / 3;
     }
 
-    .game-score{
+    .gamescore{
         grid-column: 5 / 9;
         grid-row: 3 / 4;
     }
