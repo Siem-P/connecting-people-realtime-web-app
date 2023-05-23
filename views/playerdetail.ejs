@@ -1,0 +1,91 @@
+<%- include('./partials/head') %>
+
+<main class="schedule-main">
+    <div class="schedule-content-wrapper">
+        <!-- Heading with logo -->
+        <div class="logo-lg">
+            <img src="/assets/logo-text-svg.svg" alt="Commentary Source logo" class="logo-text">
+        </div>
+
+        <section class="teams component">
+            <div class="teams-header">
+                <h1 class="player-detail-heading">Player details</h1>
+                <div class="teams-buttons">
+                    <div class="filter-buttons">
+                        <button class="filter-btn assist">All</button>
+                        <button class="filter-btn goal">Mixed</button>
+                    </div>
+                    <a class="card-link" href="/addplayerfact">+ Add Fact</a>
+                </div>
+            </div>
+
+            <h2 class="player-detail-title"><%- playerData.players[0].name %> - <%- playerData.players[0].team.name %></h2>
+
+            <div class="player-details">
+                <div class="player-bio-wrapper">
+                    <h3>Bio</h3>
+
+                    <div class="card-divider"></div>
+
+                    <div class="player-bio">
+                        <div class="detail-group">
+                            <h4>Name</h4>
+                            <p><%- playerData.players[0].name %></p>
+                        </div>
+                        <div class="detail-group">
+                            <h4>Jersey Number</h4>
+                            <p><%- playerData.players[0].jerseyNumber %></p>
+                        </div>
+                        <div class="detail-group">
+                            <h4>Gender</h4>
+                            <p><%- playerData.players[0].gender %></p>
+                        </div>
+                        <div class="detail-group">
+                            <h4>Height</h4>
+                            <p><%- playerData.players[0].height %></p>
+                        </div>
+                        <div class="detail-group">
+                            <h4>Pronounced</h4>
+                            <% if (playerData.players[0].pronounced == '' || typeof playerData.players[0].pronounced === "undefined" || playerData.players[0].pronouns === null  ) { %>
+                                <p>-</p>
+                            <% } else { %>
+                                <p><%- playerData.players[0].pronounced %></p>
+                            <% } %>
+                        </div>
+                        <div class="detail-group">
+                            <h4>Pronouns</h4>
+                            <% if (playerData.players[0].pronouns == '' || typeof playerData.players[0].pronouns === "undefined" || playerData.players[0].pronouns === null ) { %>
+                                <p>-</p>
+                            <% } else { %>
+                                <p><%- playerData.players[0].pronouns %></p>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-facts-wrapper">
+                    <h3>Facts</h3>
+
+                    <div class="card-divider"></div>
+                    
+                    <div class="player-facts">
+                        <% if (playerData.players[0].facts.length > 0) { %>
+                            <% playerData.players[0].facts.forEach(fact => { %>
+                                <div class="fact">
+                                    <h4><%- fact.question.title %></h4>
+                                    <p><%- fact.answer %></p>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <p>No facts added yet</p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+	<!-- Sidebar nav -->
+    <%- include('./modules/AsideNav') %>
+
+</main>
+<%- include('./partials/footer') %>

@@ -102,6 +102,19 @@ server.get("/addplayer", async (req, res) => {
     res.render("addplayer", { allTeams })
 })
 
+/* ------------------------------ Player detail ----------------------------- */
+server.get("/playerdetail/:id", async (req, res) => {
+    const playerData = await dataFetch(`${apiUrl}/players?id=${req.params.id}`)
+
+    res.render("playerdetail", { playerData })
+})
+
+/* ---------------------------------- Facts --------------------------------- */
+server.get("/addfact", async (req, res) => {
+    const allFacts = await dataFetch(`${apiUrl}/facts`)
+    res.render("facts", { allFacts })
+})
+
 /* ---------------------------------- Forms --------------------------------- */
 
 server.get("/forms", async (req, res) => {

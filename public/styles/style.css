@@ -424,6 +424,118 @@ body{
     width: 100%;
 }
 
+/* ----------------------------- Player details ----------------------------- */
+.player-detail-heading{
+    color: white;
+    width: 100%;
+}
+
+.player-detail-title{
+    color: white;
+    font-weight: 400;
+}
+
+.player-details{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    margin-top: -1rem;
+}
+
+.player-bio-wrapper{
+    padding: var(--padding-allround);
+    border-radius: var(--border-radius-allround);
+    background: var(--card-bg);
+    min-width: 20rem;
+    box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.3);
+}
+
+.player-bio-wrapper h3{
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.player-bio{
+    margin-top: 0.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.detail-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.detail-group::after{
+    content: '';
+    display: flex;
+    width: 90%;
+    height: 1px;
+    background: var(--dark-green);
+}
+
+.detail-group h4{
+    background: var(--dark-green);
+    margin-right: auto;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--border-radius-allround);
+    font-weight: 400;
+}
+
+.detail-group p{
+    padding: 0.2em 0.4em;
+}
+
+.player-facts-wrapper{
+    padding: var(--padding-allround);
+    border-radius: var(--border-radius-allround);
+    background: var(--card-bg);
+    min-width: 20rem;
+    box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.3);
+}
+
+.player-facts-wrapper h3{
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.player-facts{
+    margin-top: 0.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fact{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.fact::after{
+    content: '';
+    display: flex;
+    width: 90%;
+    height: 1px;
+    background: var(--dark-green);
+}
+
+.fact h4{
+    background: var(--dark-green);
+    margin-right: auto;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--border-radius-allround);
+    font-weight: 400;
+}
+
+.fact p{
+    padding: 0.2em 0.4em;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                 Commentate                                 */
 /* -------------------------------------------------------------------------- */
