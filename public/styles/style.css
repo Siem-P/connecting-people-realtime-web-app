@@ -550,6 +550,7 @@ body{
     background-color: var(--component-bg);
     border-radius: var(--border-radius-allround);
     padding: var(--padding-allround);
+    height: 100%;
 }
 
 /* -------------------------------------------------------------------------- */
