@@ -791,6 +791,9 @@ body{
     height: 50px;
     border-radius: 0.8em;
     line-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-icons {
@@ -798,7 +801,7 @@ body{
     height: auto;
 }
 
-.aside-navbar .nav-item { 
+.aside-navbar .nav-item {
     opacity: 0;
 }
 
