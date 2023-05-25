@@ -1,40 +1,65 @@
-<section class="scoreboard">
-    <button type="button" class="info-button"></button>
-    <div class="legend">
-        <div class="legend-item">
-            <img src="" alt="">
-            <p></p>
-        </div>
-        
-        <div class="legend-item">
-            <img src="" alt="">
-            <p></p>
-        </div>
+<section class="scoreboard component">
+    <!-- Scoreboard Legend -->
+    <div class="sb-legend">
+        <button type="button" class="info-button">i</button>
+        <div class="sb-legend-content">
+            <div class="sb-legend-item">
+                <img src="" alt="">
+                <p>Hold</p>
+            </div>
 
-        <div class="legend-item">
-            <img src="" alt="">
-            <p></p>
-        </div>
+            <div class="sb-legend-item">
+                <img src="" alt="">
+                <p>Broken</p>
+            </div>
 
-        <div class="legend-item">
-            <img src="" alt="">
-            <p></p>
+            <div class="sb-legend-item">
+                <img src="" alt="">
+                <p>Conceded</p>
+            </div>
+
+            <div class="sb-legend-item">
+                <img src="" alt="">
+                <p>Break</p>
+            </div>
         </div>
     </div>
-    <div class="scoreboard-item-wrapper">
-        <div class="scoreboard-item"> <!-- Gescoord punt-->
-            <div class="scoreboard-team">
-                <p></p> <!-- Player name-->
-                <img class="point-icon"> <!-- Icon based on type point -->
+
+    <!-- Scoreboard Content -->
+    <div class="scoreboard-item-wrapper scroll-y">
+        <!-- Loop through every scorepoint -->
+        <% gameStats.stats[0].point.forEach(scorePoint => { %>
+
+            <!-- Check which team scored based on name, use games endpoint to compare scored with team1.name -->
+
+
+            <div class="scoreboard-item">
+                <div class="scoreboard-team">
+                    <p><%- scorePoint.scoredBy.id %></p> <!-- Player name, compare id with id in players endpoint-->
+
+                    <!-- Icon based on type point -->
+                    <!-- Check for class -->
+                    <% if (scorePoint.team1Class === "hold") { %>
+                        <img class="point-icon" src="hold.svg">
+                    <% } else if (scorePoint.team1Class === "broken") { %>
+                        <img class="point-icon" src="broken.svg">
+                    <% } else if (scorePoint.team1Class === "conceded") { %>
+                        <img class="point-icon" src="conceded.svg">
+                    <% } else if (scorePoint.team1Class === "break") { %>
+                        <img class="point-icon" src="break.svg">
+                    <% } %>
+                </div>
+
+                <div class="point">
+                    <p><span><%- scorePoint.team1Score %></span>-<span><%- scorePoint.team2Score %></span></p>
+                </div>
+
+                <div class="scoreboard-team scoreboard-alt">
+                    <img class="point-icon"> <!-- Icon based on type point -->
+                    <p></p> <!-- Player name-->
+                </div>
             </div>
-            <div class="point">
-                <p><span><!-- Team 1 point--></span>-<span><!-- Team 2 point--></span></p>
-            </div>
-            <div class="scoreboard-team scoreboard-alt">
-                <img class="point-icon"> <!-- Icon based on type point -->
-                <p></p> <!-- Player name-->
-            </div>
-        </div> 
+        <% }) %>
     </div>
 
 </section>
