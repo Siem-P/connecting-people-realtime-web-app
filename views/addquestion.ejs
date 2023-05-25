@@ -1,0 +1,32 @@
+<%- include('./partials/head') %>
+
+<main class="schedule-main">
+    <div class="schedule-content-wrapper">
+        <!-- Heading with logo -->
+        <div class="logo-lg">
+            <img src="/assets/logo-text-svg.svg" alt="Commentary Source logo" class="logo-text">
+        </div>
+
+        <section class="team-form component">
+            <h1 class="team-form-heading">Add Question</h1>
+
+            <form class="add-team-form" action="/questionform" method="post" name="addQuestionForm">
+                <div class="form-content">
+                    <div class="form-group">
+                        <label for="title">Question</label>
+                        <input type="text" name="title" id="title" value="">
+                    </div>
+
+                    <input type="text" name="type" value="Player" hidden>
+                </div>
+                <input class="form-submit" type="submit" value="Add Question">
+            </form>
+        </section>
+    </div>
+
+    <!-- Sidebar nav -->
+    <%- include('./modules/AsideNav') %>
+
+</main>
+
+<%- include('./partials/footer') %>

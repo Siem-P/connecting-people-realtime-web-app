@@ -15,7 +15,7 @@
                         <button class="filter-btn assist">All</button>
                         <button class="filter-btn goal">Mixed</button>
                     </div>
-                    <a class="card-link" href="/addplayerfact">+ Add Fact</a>
+                    <a class="card-link" href=<%- `/addfact/${playerData.players[0].id}` %>>+ Add Fact</a>
                 </div>
             </div>
 
@@ -66,7 +66,7 @@
                     <h3>Facts</h3>
 
                     <div class="card-divider"></div>
-                    
+
                     <div class="player-facts">
                         <% if (playerData.players[0].facts.length > 0) { %>
                             <% playerData.players[0].facts.forEach(fact => { %>

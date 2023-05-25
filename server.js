@@ -110,10 +110,18 @@ server.get("/playerdetail/:id", async (req, res) => {
 })
 
 /* ---------------------------------- Facts --------------------------------- */
-server.get("/addfact", async (req, res) => {
-    const allFacts = await dataFetch(`${apiUrl}/facts`)
-    res.render("facts", { allFacts })
+server.get("/addfact/:id", async (req, res) => {
+    const questionData = await dataFetch(`${apiUrl}/questions?type=Player`)
+    const playerID = req.params.id
+
+    res.render("addfact", { questions: questionData.questions, playerID })
 })
+
+/* -------------------------------- Questions ------------------------------- */
+server.get("/addquestion", async (req, res) => {
+    res.render("addquestion")
+})
+
 
 /* ---------------------------------- Forms --------------------------------- */
 
@@ -177,7 +185,7 @@ server.post("/factform", async (req, res) => {
       console.error(errormessage)
     }
   });
-  res.redirect("/")
+  res.redirect(`/playerdetail/${req.body.reference}`)
 });
 
 // Add question form
@@ -198,7 +206,7 @@ server.post("/questionform", async (req, res) => {
       console.error(errormessage);
     }
   });
-  res.redirect("/");
+  res.redirect("/addquestion");
 });
 
 // Add team form
