@@ -668,6 +668,54 @@ body{
 /*                                 Game Score                                 */
 /* -------------------------------------------------------------------------- */
 
+.gamescore {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-score-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 9em;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.logo .team-name {
+    /* display: flex; */
+    text-align: center;
+    font-size: 1.1em;
+    color: var(--text-color);
+    /* margin-bottom: 1em; */
+}
+
+.score {
+    color: var(--text-color);
+    font-size: 2em;
+    font-weight: 500;
+    font-family: "Roboto Mono", "monospace";
+}
+
+.game-stat-buttons {
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+    /* border-radius: ; */
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                             Navigation Sidebar                                 */
@@ -1066,7 +1114,7 @@ body{
         grid-row: 2 / 3;
     }
 
-    .game-score{
+    .gamescore{
         grid-column: 5 / 9;
         grid-row: 3 / 4;
     }
@@ -1085,6 +1133,8 @@ body{
         grid-column: 5 / 9;
         grid-row: 4 / 5;
     }
+
+    
 
     /* --------------------------------- Players -------------------------------- */
 
