@@ -680,14 +680,15 @@ body{
 .logo .team-name {
     /* display: flex; */
     text-align: center;
+    font-size: 1.1em;
     color: var(--text-color);
     /* margin-bottom: 1em; */
 }
 
 .score {
     color: var(--text-color);
-    font-size: 1.5em;
-    font-weight: 600;
+    font-size: 2em;
+    font-weight: 500;
     font-family: "Roboto Mono", "monospace";
 }
 
