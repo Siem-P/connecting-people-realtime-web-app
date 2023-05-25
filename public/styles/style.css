@@ -229,7 +229,6 @@ body{
     border-radius: var(--border-radius-allround);
     padding: var(--padding-allround-lg);
     margin: var(--padding-allround);
-    overflow-y: scroll;
     height: 100%;
 }
 
@@ -412,6 +411,7 @@ body{
 /* -------------------------------------------------------------------------- */
 /*                                Players page                                */
 /* -------------------------------------------------------------------------- */
+
 .player-cards{
     display: flex;
     flex-flow: column;
@@ -884,6 +884,10 @@ body{
     /* width: 100%; */
 }
 
+.scroll-y{
+    overflow-y: scroll;
+}
+
 .team-players{
     display: flex;
     flex-direction: column;
@@ -1134,7 +1138,7 @@ body{
         grid-row: 4 / 5;
     }
 
-    
+
 
     /* --------------------------------- Players -------------------------------- */
 
