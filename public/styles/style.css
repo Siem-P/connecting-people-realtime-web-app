@@ -333,7 +333,6 @@ body{
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
-    max-width: 25rem;
 }
 
 .form-content{
@@ -347,6 +346,8 @@ body{
     flex-direction: column;
     gap: 0.2rem;
     color: white;
+    max-width: 25rem;
+
 }
 
 .form-group select{
@@ -385,6 +386,18 @@ body{
 
 .form-content fieldset legend input{
     margin-right: 0.4rem;
+}
+
+.extra-form-info{
+    color: white;
+    padding: var(--padding-allround);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.extra-form-info a{
+    color: white;
 }
 
 .form-submit{
