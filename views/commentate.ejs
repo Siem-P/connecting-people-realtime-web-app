@@ -8,7 +8,7 @@
 	<%- include('./modules/Commentate/Legend') %>
 
 	<!-- Game score -->
-	<%- include('./modules/Commentate/GameScore') %>
+	<%- include('./modules/Commentate/GameScore', {gameData, gameStats}) %>
 
 	<!-- Team One -->
 	<%- include('./modules/Commentate/Players/TeamOne', {gameData, playerData}) %>

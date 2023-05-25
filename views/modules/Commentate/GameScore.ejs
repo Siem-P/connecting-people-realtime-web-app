@@ -5,16 +5,16 @@
       <!-- Display Flex & Row & space between-->
       <div class="logo">
         <img src="/assets/leeuwen.svg">
-        <span class="team-name">Leeuwen<!-- Team name 1 --></span>
+        <span class="team-name"><%- gameData.games[0].team1.name %></span>
       </div>
       <div class="score">
-        <span class="scored-point">3<!-- Score 1 --></span>
+        <span class="scored-point"><%- gameStats.stats[0].team1Score %></span>
         <span>-</span>
-        <span class="scored-point">4<!-- Score 2 --></span>
+        <span class="scored-point"><%- gameStats.stats[0].team2Score %></span>
       </div>
       <div class="logo">
         <img src="/assets/goudvissen.svg">
-        <span class="team-name">Goudvissen<!-- Team name 1 --></span>
+        <span class="team-name"><%- gameData.games[0].team2.name %></span>
       </div>
     </div>
     <div class="game-stat-buttons">

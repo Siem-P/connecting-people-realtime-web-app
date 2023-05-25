@@ -122,7 +122,6 @@ server.get("/addquestion", async (req, res) => {
     res.render("addquestion")
 })
 
-
 /* ---------------------------------- Forms --------------------------------- */
 
 server.get("/forms", async (req, res) => {
