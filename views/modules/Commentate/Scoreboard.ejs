@@ -1,0 +1,121 @@
+<section class="scoreboard component">
+    <!-- Scoreboard Legend -->
+    <div class="sb-legend">
+        <button type="button" class="info-button" id="sb-legend-btn">i</button>
+        <div class="sb-legend-content">
+            <div class="sb-legend-item">
+                <img src="/assets/hold.svg" alt="Hold icon">
+                <p>Hold</p>
+            </div>
+
+            <div class="sb-legend-item">
+                <img src="/assets/broken.svg" alt="Broken icon">
+                <p>Broken</p>
+            </div>
+
+            <div class="sb-legend-item">
+                <img src="/assets/conceded.svg" alt="Conceded icon">
+                <p>Conceded</p>
+            </div>
+
+            <div class="sb-legend-item">
+                <img src="/assets/break.svg" alt="Break icon">
+                <p>Break</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scoreboard Content -->
+    <div class="scoreboard-item-wrapper">
+        <!-- Loop through every scorepoint -->
+        <% gameStats.stats[0].point.forEach(scorePoint => { %>
+            <!-- Get team names -->
+            <%const team1 = gameData.games[0].team1.name%>
+            <%const team2 = gameData.games[0].team2.name%>
+            <%const scoredTeam = scorePoint.scored.name%>
+
+            <% let teamOneClass = "" %>
+            <% let teamTwoClass = "" %>
+
+            <!-- Icon based on type point -->
+            <!-- Check for class -->
+
+            <!-- Switch for Team 1 class -->
+            <% switch (scorePoint.team1Class) {
+                case "hold":
+                    teamOneClass = "hold"
+                    break;
+
+                case "broken":
+                    teamOneClass = "broken"
+                    break;
+
+                case "conceded":
+                    teamOneClass = "conceded"
+                    break;
+
+                case "break":
+                    teamOneClass = "break"
+                    break;
+
+                default:
+                    break;
+            } %>
+
+            <!-- Switch for Team 2 class -->
+            <% switch (scorePoint.team2Class) {
+                case "hold":
+                    teamTwoClass = "hold"
+                    break;
+
+                case "broken":
+                    teamTwoClass = "broken"
+                    break;
+
+                case "conceded":
+                    teamTwoClass = "conceded"
+                    break;
+
+                case "break":
+                    teamTwoClass = "break"
+                    break;
+
+                default:
+                    break;
+            } %>
+
+            <%if (team1 === scoredTeam) {%>
+                <div class="scoreboard-item">
+                    <div class="scoreboard-team">
+                        <p><%- scorePoint.scoredBy.name %></p>
+                    </div>
+
+                    <div class="point">
+                        <p><span><%- scorePoint.team1Score %></span>-<span><%- scorePoint.team2Score %></span></p>
+                    </div>
+
+                    <div class="sb-class-icon">
+                        <img src="/assets/<%- teamOneClass %>.svg" alt="<%- teamOneClass %> icon">
+                    </div>
+                </div>
+            <%}%>
+
+            <%if (team2 === scoredTeam) {%>
+                <div class="scoreboard-item sb-item-alt">
+                    <div class="sb-class-icon sb-class-alt">
+                        <img src="/assets/<%- teamTwoClass %>.svg" alt="<%- teamTwoClass %> icon">
+                    </div>
+
+                    <div class="point">
+                        <p><span><%- scorePoint.team1Score %></span>-<span><%- scorePoint.team2Score %></span></p>
+                    </div>
+
+                    <div class="scoreboard-team sb-team-alt">
+                        <p class="sb-p-alt"><%- scorePoint.scoredBy.name %></p>
+                    </div>
+                </div>
+            <%}
+            }) %>
+    </div>
+
+</section>

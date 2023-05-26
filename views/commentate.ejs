@@ -17,7 +17,7 @@
 	<%- include('./modules/Commentate/Players/TeamTwo', {gameData, playerData}) %>
 
 	<!-- Scoreboard -->
-	<%- include('./modules/Commentate/Scoreboard') %>
+	<%- include('./modules/Commentate/Scoreboard', {gameData, playerData, gameStats}) %>
 
 	<!-- Stats -->
 
@@ -25,4 +25,5 @@
 
 
 </main>
+<script src="/scripts/scoreboardLegend.js"></script>
 <%- include('./partials/footer') %>

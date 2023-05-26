@@ -25,11 +25,13 @@
     font-family: "Roboto Mono";
     src: url('../fonts/RobotoMono.ttf');
     font-weight: 400;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Roboto Slab";
     src: url('../fonts/RobotoSlab.ttf');
+    font-display: swap;
 }
 
 *{
@@ -875,8 +877,7 @@ body{
 
 
 /* -------------------------------------------------------------------------- */
-/*
-                               Players                                  */
+/*                                  Players                                   */
 /* -------------------------------------------------------------------------- */
 .players{
     display: flex;
@@ -903,8 +904,6 @@ body{
     align-items: center;
     padding: var(--padding-allround);
     color: #fff;
-    position: sticky;
-    top: 0;
     z-index: 2;
 }
 
@@ -1078,7 +1077,138 @@ body{
 /* -------------------------------------------------------------------------- */
 /*                                 Scoreboard                                 */
 /* -------------------------------------------------------------------------- */
+.scoreboard{
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 0;
+    gap: 0.6rem;
+}
 
+.sb-legend{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sb-legend button{
+    background: var(--dark-green);
+    border: none;
+    font-weight: 400;
+    margin-right: 0.5em;
+    color: white;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.3rem;
+}
+
+.sb-legend-content{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.4rem;
+    row-gap: 0.2rem;
+    flex-wrap: wrap;
+    margin-left: 0.6rem;
+}
+
+.sb-legend-content--active{
+    display: flex;
+}
+
+.sb-legend-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin-right: 0.4rem;
+}
+
+.sb-legend-item::after{
+    content: '';
+    display: block;
+    position: absolute;
+    right: -0.4rem;
+    width: 1px;
+    height: 100%;
+    background-color: var(--tertiary);
+}
+
+.sb-legend-item img{
+    width: auto;
+    height: 1rem;
+}
+
+.sb-legend-item p{
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+    color: white;
+}
+
+.scoreboard-item-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.scoreboard-item{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.scoreboard-item:nth-child(odd){
+    background: var(--primary-color);
+}
+
+.scoreboard-team{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.scoreboard-team > p{
+    font-weight: 400;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+    color: white;
+    word-break: break-word;
+}
+
+.scoreboard-item .point{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 20%;
+}
+
+.sb-class-icon{
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+.sb-class-alt{
+    justify-content: flex-end;
+}
+
+.sb-team-alt{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.sb-item-alt{
+    justify-content: flex-end;
+}
+
+.sb-p-alt{
+    text-align: right;
+    padding-right: 0;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                    Forms                                   */
