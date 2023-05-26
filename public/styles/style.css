@@ -1104,13 +1104,17 @@ body{
 }
 
 .sb-legend-content{
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
     column-gap: 0.4rem;
     row-gap: 0.2rem;
     flex-wrap: wrap;
     margin-left: 0.6rem;
+}
+
+.sb-legend-content--active{
+    display: flex;
 }
 
 .sb-legend-item{
