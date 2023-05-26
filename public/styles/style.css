@@ -1227,6 +1227,143 @@ body{
     padding: 1em;
 }
 
+
+/* -------------------------------------------------------------------------- */
+/*                                    Styleguide                                   */
+/* -------------------------------------------------------------------------- */
+
+
+.styleguide {
+    display: flex;
+    width: 100%;
+    background-color: white;
+}
+
+.styleguide-section {
+    padding: var(--padding-allround-lg);
+    border-radius: var(--border-radius-allround);
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+
+}
+
+.styleguide-section > article {
+    /* padding: 1em; */
+    border-radius: 1em;
+    box-shadow: 0px 0px 1px 3px rgba(0, 0, 0, 0.2);
+    padding: 1em;
+}
+
+.colors {
+    display: flex;
+    flex-direction: column;
+}
+
+.colors ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.color-wrapper {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.color-wrapper li {
+    list-style-type: none;
+}
+
+.color-item {
+    width: 11em;
+    height: 11em;
+    border-radius: var(--border-radius-allround);
+
+}
+
+.color-item-sm {
+    width: 9em;
+    height: 9em;
+    border-radius: var(--border-radius-allround);
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Styleguide colors */
+
+/* Primary */
+
+.color-004b4b {
+    background-color: var(--primary-color);
+}
+
+.color-125f5f {
+    background-color: var(--primary-color-lighter);
+}
+
+/* Secondary  */
+.color-003434 {
+    background-color: var(--secondary-color);
+}
+
+.color-106464 {
+    background-color: var(--component-bg);
+}
+
+.color-003434 {
+    background-color: var(--main-bg);
+}
+
+.color-1e4545 {
+    background-color: var(--card-bg);
+}
+
+/* Accents */
+.accent-096F19 {
+    background-color: var(--goal-green);
+}
+
+.accent-1757A1 {
+    background-color: var(--assist-blue);
+}
+
+.accent-841313 {
+    background-color: var(--block-red);
+}
+
+.accent-B29A17 {
+    background-color: var(--turnover-yellow);
+}
+
+.styleguide-icons {
+    display: flex;
+}
+
+.styleguide-icon-wrapper {
+    display: flex;
+    gap: 1em;
+}
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-allround);
+    width: 100%;
+}
+
+.styleguide-icons .styleguide-icon-wrapper img{
+    width: 2em;
+    display: flex;
+    align-items: center;
+
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                 Tablet size                                */
 /* -------------------------------------------------------------------------- */
@@ -1269,7 +1406,7 @@ body{
     }
 
 
-
+x
     /* --------------------------------- Players -------------------------------- */
 
     .team-two-players .players-heading{

@@ -234,6 +234,11 @@ server.post("/teamform", async (req, res) => {
   res.redirect("/");
 });
 
+
+server.get('/styleguide', (req, res) => {
+res.render('styleguide')
+});
+
 /* ----------------------------- Other functions ---------------------------- */
 
 // Api call function
