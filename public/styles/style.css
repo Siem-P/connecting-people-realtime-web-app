@@ -25,11 +25,13 @@
     font-family: "Roboto Mono";
     src: url('../fonts/RobotoMono.ttf');
     font-weight: 400;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Roboto Slab";
     src: url('../fonts/RobotoSlab.ttf');
+    font-display: swap;
 }
 
 *{
@@ -875,8 +877,7 @@ body{
 
 
 /* -------------------------------------------------------------------------- */
-/*
-                               Players                                  */
+/*                                  Players                                   */
 /* -------------------------------------------------------------------------- */
 .players{
     display: flex;
@@ -1078,7 +1079,28 @@ body{
 /* -------------------------------------------------------------------------- */
 /*                                 Scoreboard                                 */
 /* -------------------------------------------------------------------------- */
+.scoreboard{
+    display: flex;
+    flex-direction: column;
+}
 
+.sb-legend{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sb-legend-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sb-legend-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                    Forms                                   */

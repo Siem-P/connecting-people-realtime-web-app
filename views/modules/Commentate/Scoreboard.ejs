@@ -26,40 +26,94 @@
     </div>
 
     <!-- Scoreboard Content -->
-    <div class="scoreboard-item-wrapper scroll-y">
+    <div class="scoreboard-item-wrapper">
         <!-- Loop through every scorepoint -->
         <% gameStats.stats[0].point.forEach(scorePoint => { %>
 
             <!-- Check which team scored based on name, use games endpoint to compare scored with team1.name -->
 
+            <%const team1 = gameData.games[0].team1.name%>
+            <%const team2 = gameData.games[0].team2.name%>
+            <%const scoredTeam = scorePoint.scored.name%>
 
-            <div class="scoreboard-item">
-                <div class="scoreboard-team">
-                    <p><%- scorePoint.scoredBy.id %></p> <!-- Player name, compare id with id in players endpoint-->
+            <%if (team1 === scoredTeam) {%>
+                <div class="scoreboard-item">
+                    <div class="scoreboard-team">
+                        <!-- Player name, compare id with id in players endpoint-->
+                        <p><%- scorePoint.scoredBy.id %> TEST TEAM 1 SCORE</p>
 
-                    <!-- Icon based on type point -->
-                    <!-- Check for class -->
-                    <% if (scorePoint.team1Class === "hold") { %>
-                        <img class="point-icon" src="hold.svg">
-                    <% } else if (scorePoint.team1Class === "broken") { %>
-                        <img class="point-icon" src="broken.svg">
-                    <% } else if (scorePoint.team1Class === "conceded") { %>
-                        <img class="point-icon" src="conceded.svg">
-                    <% } else if (scorePoint.team1Class === "break") { %>
-                        <img class="point-icon" src="break.svg">
-                    <% } %>
+                        <% let teamOneClass = "" %>
+                        <!-- Icon based on type point -->
+                        <!-- Check for class -->
+
+                        <% switch (scorePoint.team1Class) {
+                            case "hold":
+                                teamOneClass = "hold"
+                                break;
+
+                            case "broken":
+                                teamOneClass = "broken"
+                                break;
+
+                            case "conceded":
+                                teamOneClass = "conceded"
+                                break;
+
+                            case "break":
+                                teamOneClass = "break"
+                                break;
+
+                            default:
+                                break;
+                        } %>
+                        <img src="<%- teamOneClass %>.svg" alt="">
+                    </div>
+
+                    <div class="point">
+                        <p><span><%- scorePoint.team1Score %></span>-<span><%- scorePoint.team2Score %></span></p>
+                    </div>
                 </div>
+            <%}%>
 
-                <div class="point">
-                    <p><span><%- scorePoint.team1Score %></span>-<span><%- scorePoint.team2Score %></span></p>
-                </div>
+            <%if (team2 === scoredTeam) {%>
+                <div class="scoreboard-item">
+                    <div class="point">
+                        <p><span><%- scorePoint.team1Score %></span>-<span><%- scorePoint.team2Score %></span></p>
+                    </div>
 
-                <div class="scoreboard-team scoreboard-alt">
-                    <img class="point-icon"> <!-- Icon based on type point -->
-                    <p></p> <!-- Player name-->
+                    <div class="scoreboard-team">
+                        <!-- Player name, compare id with id in players endpoint-->
+                        <p><%- scorePoint.scoredBy.id %> TEST TEAM 2 SCORE</p>
+
+                        <% let teamTwoClass = "" %>
+
+                        <!-- Icon based on type point -->
+                        <!-- Check for class -->
+                        <% switch (scorePoint.team2Class) {
+                            case "hold":
+                                teamTwoClass = "hold"
+                                break;
+
+                            case "broken":
+                                teamTwoClass = "broken"
+                                break;
+
+                            case "conceded":
+                                teamTwoClass = "conceded"
+                                break;
+
+                            case "break":
+                                teamTwoClass = "break"
+                                break;
+
+                            default:
+                                break;
+                        } %>
+                        <img src="<%- teamTwoClass %>.svg" alt="">
+                    </div>
                 </div>
-            </div>
-        <% }) %>
+            <%}
+            }) %>
     </div>
 
 </section>
