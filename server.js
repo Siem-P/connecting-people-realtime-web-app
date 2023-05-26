@@ -24,10 +24,10 @@ http.listen(server.get("port"), () => {
 });
 
 io.on('connection', (socket) => {
-  console.log('a user connected')
+  // console.log('a user connected')
 
   socket.on('disconnect', () => {
-    console.log('user disconnected')
+    // console.log('user disconnected')
   })
 })
 
@@ -60,7 +60,7 @@ server.get("/commentate", async (req, res) => {
 server.get("/commentate/:id", async (req, res) => {
     const gameData = await dataFetch(`${apiUrl}/games?id=${req.params.id}`)
     const playerData = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC&first=100`)
-    const gameStats = await dataFetch(`${apiUrl}/stats?id=${req.params.id}`)
+    const gameStats = await dataFetch(`${localUrl}/stats?id=${req.params.id}`)
 
     const allTeams = await dataFetch(`${apiUrl}/teams`);
     const questionData = await dataFetch(`${apiUrl}/questions?type=Player`)

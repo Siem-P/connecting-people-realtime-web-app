@@ -904,8 +904,6 @@ body{
     align-items: center;
     padding: var(--padding-allround);
     color: #fff;
-    position: sticky;
-    top: 0;
     z-index: 2;
 }
 
@@ -1100,6 +1098,15 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.scoreboard-item-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.scoreboard-item:nth-child(odd){
+    background: var(--dark-green-hover);
 }
 
 /* -------------------------------------------------------------------------- */
