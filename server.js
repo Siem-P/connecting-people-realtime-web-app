@@ -26,16 +26,16 @@ http.listen(server.get("port"), () => {
 io.on('connection', (socket) => {
   // console.log('a user connected')
 
-  socket.on('disconnect', () => {
-    // console.log('user disconnected')
-  })
+	socket.on('disconnect', () => {
+    	// console.log('user disconnected')
+	})
 })
 
 /* ---------------------------------- Index --------------------------------- */
 
 server.get("/", async (req, res) => {
-  const allGames = await dataFetch(`${apiUrl}/games`)
-  res.render("index", { allGames })
+	const allGames = await dataFetch(`${apiUrl}/games`)
+	res.render("index", { allGames })
 })
 
 /* ------------------------------- Commentate ------------------------------- */
@@ -122,7 +122,9 @@ server.get("/addquestion", async (req, res) => {
     res.render("addquestion")
 })
 
-/* ---------------------------------- Forms --------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                    Forms                                   */
+/* -------------------------------------------------------------------------- */
 
 server.get("/forms", async (req, res) => {
 	const allTeams = await dataFetch(`${apiUrl}/teams`);
@@ -132,121 +134,128 @@ server.get("/forms", async (req, res) => {
     res.render("forms", { allTeams, playerData, questionData })
 })
 
-
-// Add player form
+/* ----------------------------- Add player form ---------------------------- */
 server.post("/playerform", async (req, res) => {
-  const postPlayerURL = apiUrl + "/players";
-  req.body.jerseyNumber = Number(req.body.jerseyNumber);
-  req.body.height = Number(req.body.height);
+	const postPlayerURL = apiUrl + "/players";
+	req.body.jerseyNumber = Number(req.body.jerseyNumber);
+	req.body.height = Number(req.body.height);
 
-  postJson(postPlayerURL, req.body).then((data) => {
-    let newPlayer = req.body;
+	postJson(postPlayerURL, req.body).then((data) => {
+		let newPlayer = req.body;
 
-    if (data. status == 200) {
-      res.redirect("/");
-      console.log("Status 200: Done!")
-    } else if (data.status == 400){
-      const errormessage = `${data.message}`;
-      const newteam = {
-        error: errormessage,
-        values: newPlayer
-      };
-      console.error("Status 400:" + errormessage);
+		if (data.status == 200) {
+			res.redirect("/");
+			console.log("Status 200: Done!")
+		} else if (data.status == 400) {
+			const errormessage = `${data.message}`;
+			const newteam = {
+				error: errormessage,
+				values: newPlayer
+			};
+			console.error("Status 400:" + errormessage);
 
-    } else if(data.status == 500) {
-      const errormessage = `${data.message}`;
-      const newteam = {
-        error: errormessage,
-        values: newPlayer
-      };
-      console.error("Status 500:" + errormessage);
-    }
-  });
+		} else if (data.status == 500) {
+			const errormessage = `${data.message}`;
+			const newteam = {
+				error: errormessage,
+				values: newPlayer
+			};
+			console.error("Status 500:" + errormessage);
+		}
+	});
 
-  res.redirect("/");
+	res.redirect("/");
 });
 
-// Add fact form
+/* ------------------------------ Add fact form ----------------------------- */
 server.post("/factform", async (req, res) => {
-  const postFactUrl = apiUrl + "/facts";
+	const postFactUrl = apiUrl + "/facts";
 
-  postJson(postFactUrl, req.body).then((data) => {
-    let newFact = req.body
+	postJson(postFactUrl, req.body).then((data) => {
+		let newFact = req.body
 
-    if (data.succes) {
-      res.redirect("/?memberPosted=true")
-    } else {
-      const errormessage = `${data.message}`
-      const newteam = {
-        error: errormessage,
-        values: newFact
-      };
-      console.error(errormessage)
-    }
-  });
-  res.redirect(`/playerdetail/${req.body.reference}`)
+		if (data.succes) {
+			res.redirect("/?memberPosted=true")
+		} else {
+			const errormessage = `${data.message}`
+			const newteam = {
+				error: errormessage,
+				values: newFact
+			};
+			console.error(errormessage)
+		}
+	});
+	res.redirect(`/playerdetail/${req.body.reference}`)
 });
 
-// Add question form
+/* ---------------------------- Add question form --------------------------- */
 server.post("/questionform", async (req, res) => {
-  const postQuestionUrl = apiUrl + "/questions";
+	const postQuestionUrl = apiUrl + "/questions";
 
-  postJson(postQuestionUrl, req.body).then((data) => {
-    let newQuestion = req.body;
+	postJson(postQuestionUrl, req.body).then((data) => {
+		let newQuestion = req.body;
 
-    if (data.succes) {
-      res.redirect("/?memberPosted=true");
-    } else {
-      const errormessage = `${data.message}`;
-      const newquestion = {
-        error: errormessage,
-        values: newQuestion
-      };
-      console.error(errormessage);
-    }
-  });
-  res.redirect("/addquestion");
+		if (data.succes) {
+			res.redirect("/?memberPosted=true");
+		} else {
+			const errormessage = `${data.message}`;
+			const newquestion = {
+				error: errormessage,
+				values: newQuestion
+			};
+			console.error(errormessage);
+		}
+	});
+	res.redirect("/addquestion");
 });
 
-// Add team form
+/* ------------------------------ Add team form ----------------------------- */
 server.post("/teamform", async (req, res) => {
-  const postTeamURL = apiUrl + "/teams";
-  req.body.seeding = Number(req.body.seeding);
-  console.log(req.body);
+	const postTeamURL = apiUrl + "/teams";
+	req.body.seeding = Number(req.body.seeding);
+	console.log(req.body);
 
-  // For reference
-  // req.body.facts = []
-  // req.body.players = []
+	// For reference
+	// req.body.facts = []
+	// req.body.players = []
 
-  postJson(postTeamURL, req.body).then((data) => {
-    let newTeam = req.body;
+	postJson(postTeamURL, req.body).then((data) => {
+		let newTeam = req.body;
 
-    if (data.succes) {
-      res.redirect("/?memberPosted=true");
-    } else {
-      const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`;
-      const newteam = {
-        error: errormessage,
-        values: newTeam
-      };
-    }
-  });
-  res.redirect("/");
+		if (data.succes) {
+			res.redirect("/?memberPosted=true");
+		} else {
+			const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`;
+			const newteam = {
+				error: errormessage,
+				values: newTeam
+			};
+		}
+	});
+	res.redirect("/");
 });
 
-
+/* ------------------------------- Styleguide ------------------------------- */
 server.get('/styleguide', (req, res) => {
-res.render('styleguide')
+	res.render('styleguide')
 });
 
-/* ----------------------------- Other functions ---------------------------- */
+/* ---------------------------------- Point --------------------------------- */
+server.post("/addpoint", async (req, res) => {
+	const postPointUrl = apiUrl + "/stats"
 
-// Api call function
+})
+
+/* -------------------------------------------------------------------------- */
+/*                               Other functions                              */
+/* -------------------------------------------------------------------------- */
+
+/* ---------------------------- Api call function --------------------------- */
 async function dataFetch(url) {
-  const data = await fetch(url)
-    .then((response) => response.json())
-    .catch((error) => error);
-  return data;
+	const data = await fetch(url)
+		.then((response) => response.json())
+		.catch((error) => error);
+	return data;
 }
 
 /**
@@ -258,14 +267,14 @@ async function dataFetch(url) {
  * @returns the json response from the api endpoint
  */
 export async function postJson(url, body) {
-  console.log(2, JSON.stringify(body));
-  return await fetch(url, {
-      method: "post",
-      body: JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json"
-      },
-    })
-    .then((response) => response.json())
-    .catch((error) => error);
+	console.log(2, JSON.stringify(body));
+	return await fetch(url, {
+			method: "post",
+			body: JSON.stringify(body),
+			headers: {
+				"Content-Type": "application/json"
+			},
+		})
+		.then((response) => response.json())
+		.catch((error) => error);
 }
