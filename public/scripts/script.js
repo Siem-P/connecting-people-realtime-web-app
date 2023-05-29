@@ -19,6 +19,7 @@ form.addEventListener("submit", (e) => {
     const startedOnOffence = document.getElementById("startedOnOffence").value
     const startedOnDefence = document.getElementById("startedOnDefence").value
     const scoredBy = document.getElementById("scoredBy").value
+    const scoredByName = document.getElementById("scoredBy").selectedOptions[0].text
 
     // Parse to int
     team1Score = parseInt(team1Score)
@@ -77,7 +78,7 @@ form.addEventListener("submit", (e) => {
         let scoreboardData = `
             <div class='scoreboard-item'>
                 <div class='scoreboard-team'>
-                    <p>${scoredBy}</p>
+                    <p>${scoredByName}</p>
                 </div>
                 <div class="point">
                     <p><span>${team1Score}</span>-<span>${team2Score}</span></p>
@@ -112,7 +113,7 @@ form.addEventListener("submit", (e) => {
                     <p><span>${team1Score}</span>-<span>${team2Score}</span></p>
                 </div>
                 <div class='scoreboard-team sb-team-alt'>
-                    <p sb-p-alt>${scoredBy}</p>
+                    <p sb-p-alt>${scoredByName}</p>
                 </div>
             </div>
         `
