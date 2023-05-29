@@ -8,10 +8,14 @@
         <span class="team-name"><%- gameData.games[0].team1.name %></span>
       </div>
       <div class="score">
-        <% const lastIndex = gameStats.stats[0].point.length - 1 %>
-        <span class="scored-point"><%- gameStats.stats[0].point[lastIndex].team1Score %></span>
+        <!-- Get last index of stats point array -->
+        <% let lastPointIndex = gameStats.stats[0].point.length - 1 %>
+        <% let team1Score = gameStats.stats[0].point[lastPointIndex].team1Score %>
+        <% let team2Score = gameStats.stats[0].point[lastPointIndex].team2Score %>
+        
+        <span class="scored-point"><%- team1Score %></span>
         <span>-</span>
-        <span class="scored-point"><%- gameStats.stats[0].point[lastIndex].team2Score %></span>
+        <span class="scored-point"><%- team2Score %></span>
       </div>
       <div class="logo">
         <img src="/assets/goudvissen.svg">
@@ -19,8 +23,8 @@
       </div>
     </div>
     <div class="game-stat-buttons">
-      <button id="scoreboard">Scoreboard</button>
-      <button id="stats">Stats</button>
+      <button id="scoreboard-button">Scoreboard</button>
+      <button id="stats-button">Stats</button>
     </div>
   </div>
 </section>
