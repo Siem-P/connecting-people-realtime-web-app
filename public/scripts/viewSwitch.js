@@ -1,18 +1,18 @@
 const scoreboard = document.querySelector('.scoreboard')
-const stats = document.querySelector('.stats')
+const scoreInput = document.querySelector('.score-input')
 
 const scoreboardButton = document.querySelector('#scoreboard-button')
-const statsButton = document.querySelector('#stats-button')
+const scoreInputButton = document.querySelector('#score-input-button')
 
 scoreboardButton.addEventListener('click', () => {
     console.log('Left button clicked')
     scoreboard.classList.remove('hide')
-    stats.classList.add('hide')
-    
+    scoreInput.classList.add('hide')
+
 })
 
-statsButton.addEventListener('click', () => {
+scoreInputButton.addEventListener('click', () => {
     console.log('Right button clicked')
     scoreboard.classList.add('hide')
-    stats.classList.remove('hide')
+    scoreInput.classList.remove('hide')
 })

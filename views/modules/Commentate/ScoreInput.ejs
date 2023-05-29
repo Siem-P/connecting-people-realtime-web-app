@@ -1,5 +1,5 @@
-<section class="score-input component">
-    <h1 class="point-heading">Add Point</h1>
+<section class="score-input component hide">
+    <p class="point-heading">Add Point</p>
 
             <form class="add-point-form" action="/addpoint" method="post" name="addPointForm" id="addPointForm">
                 <div class="form-content">
@@ -74,6 +74,6 @@
                     <input type="text" name="stat" id="stat" value="<%- gameStats.stats[0].id %>" hidden>
 
                 </div>
-                <input class="form-submit" type="submit" value="Add Point">
+                <input class="form-submit point-submit" type="submit" value="Add Point">
             </form>
 </section>

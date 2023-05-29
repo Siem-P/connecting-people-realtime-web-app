@@ -12,7 +12,7 @@
         <% let lastPointIndex = gameStats.stats[0].point.length - 1 %>
         <% let team1Score = gameStats.stats[0].point[lastPointIndex].team1Score %>
         <% let team2Score = gameStats.stats[0].point[lastPointIndex].team2Score %>
-        
+
         <span class="scored-point"><%- team1Score %></span>
         <span>-</span>
         <span class="scored-point"><%- team2Score %></span>
@@ -24,7 +24,7 @@
     </div>
     <div class="game-stat-buttons">
       <button id="scoreboard-button">Scoreboard</button>
-      <button id="stats-button">Stats</button>
+      <button id="score-input-button">Score Input</button>
     </div>
   </div>
 </section>
