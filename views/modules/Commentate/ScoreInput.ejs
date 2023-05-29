@@ -1,7 +1,7 @@
 <section class="score-input component">
     <h1 class="point-heading">Add Point</h1>
 
-            <form class="add-point-form" action="/addpoint" method="post" name="addPointForm">
+            <form class="add-point-form" action="/addpoint" method="post" name="addPointForm" id="addPointForm">
                 <div class="form-content">
                     <div class="form-group">
                         <label for="startedOnOffence">Team on offence</label>
@@ -40,23 +40,38 @@
                         </select>
                     </div>
 
+                    <% const players = playerData.players.filter(player => player.team.name === gameData.games[0].team1.name || player.team.name === gameData.games[0].team2.name) %>
+
                     <!-- Get all players from team 1 and team 2 OR get all players from team based on input scored field -->
                     <div class="form-group">
                         <label for="scoredBy">Scored By</label>
-                        <input type="text" name="scoredBy" id="scoredBy" required>
+                        <select name="scoredBy" id="scoredBy" required>
+                            <option disabled selected>--- Select ---</option>
+                            <% players.forEach(player => { %>
+                                <option value="<%- player.id %>"><%- player.name %></option>
+                            <% }) %>
+                        </select>
                     </div>
 
                     <!-- Get all players from team 1 and team 2 OR get all players from team based on input scored field -->
                     <div class="form-group">
                         <label for="assistBy">Assist By</label>
-                        <input type="text" name="assistBy" id="assistBy" required>
+                        <select name="assistBy" id="assistBy" required>
+                            <option disabled selected>--- Select ---</option>
+                            <% players.forEach(player => { %>
+                                <option value="<%- player.id %>"><%- player.name %></option>
+                            <% }) %>
+                        </select>
                     </div>
 
-                    <input type="text" name="team1Class" id="team1Class" value="" hidden required>
-                    <input type="text" name="team2Class" id="team2Class" value="" hidden required>
-                    <input type="text" name="team1OorD" id="team1OorD" value="" hidden required>
-                    <input type="text" name="team2OorD" id="team2OorD" value="" hidden required>
-                    <input type="text" name="stat" id="stat" value="" hidden required>
+                    <input type="text" name="gameId" id="gameId" value="<%- gameData.games[0].gameId %>" hidden>
+                    <input type="text" name="team1Id" id="team1Id" value="<%- gameData.games[0].team1.id %>" hidden>
+                    <input type="text" name="team2Id" id="team2Id" value="<%- gameData.games[0].team2.id %>" hidden>
+                    <input type="text" name="team1Class" id="team1Class" value="" hidden>
+                    <input type="text" name="team2Class" id="team2Class" value="" hidden>
+                    <input type="text" name="team1OorD" id="team1OorD" value="" hidden>
+                    <input type="text" name="team2OorD" id="team2OorD" value="" hidden>
+                    <input type="text" name="stat" id="stat" value="<%- gameStats.stats[0].id %>" hidden>
 
                 </div>
                 <input class="form-submit" type="submit" value="Add Point">

@@ -70,7 +70,7 @@ server.get("/commentate/:id", async (req, res) => {
     playerData,
     gameStats,
     allTeams,
-    questionData
+    questionData,
     })
 })
 
@@ -243,7 +243,101 @@ server.get('/styleguide', (req, res) => {
 /* ---------------------------------- Point --------------------------------- */
 server.post("/addpoint", async (req, res) => {
 	const postPointUrl = apiUrl + "/stats"
+	req.body.team1Score = Number(req.body.team1Score)
+	req.body.team2Score = Number(req.body.team2Score)
+	req.body.gameId = Number(req.body.gameId)
 
+	console.log(req.body)
+
+	// Determine class
+	// Team 1 Start offence && goal
+	if (req.body.startedOnOffence === req.body.team1Id && req.body.scored === req.body.team1Id){
+		req.body.team1Class = "hold"
+	}
+
+	// Team 1 Start offence && goal against
+	if (req.body.startedOnOffence === req.body.team1Id && req.body.scored === req.body.team2Id){
+		req.body.team1Class = "break"
+	}
+
+	// Team 1 Start defence && goal
+	if (req.body.startedOnDefence === req.body.team1Id && req.body.scored === req.body.team1Id){
+		req.body.team1Class = "broken"
+	}
+
+	// Team 1 Start defence && goal against
+	if (req.body.startedOnDefence === req.body.team1Id && req.body.scored === req.body.team2Id){
+		req.body.team1Class = "conceded"
+	}
+
+	// Team 2 Start offence && goal
+	if (req.body.startedOnOffence === req.body.team2Id && req.body.scored === req.body.team2Id){
+		req.body.team2Class = "hold"
+	}
+
+	// Team 2 Start offence && goal against
+	if (req.body.startedOnOffence === req.body.team2Id && req.body.scored === req.body.team1Id){
+		req.body.team2Class = "break"
+	}
+
+	// Team 2 Start defence && goal
+	if (req.body.startedOnDefence === req.body.team2Id && req.body.scored === req.body.team2Id){
+		req.body.team2Class = "broken"
+	}
+
+	// Team 2 Start defence && goal against
+	if (req.body.startedOnDefence === req.body.team2Id && req.body.scored === req.body.team1Id){
+		req.body.team2Class = "conceded"
+	}
+
+	// Check for start on offence or defence
+	if (req.body.startedOnOffence === req.body.team1Id){
+		req.body.team1OorD = "O"
+		req.body.team2OorD = "D"
+	} else {
+		req.body.team1OorD = "D"
+		req.body.team2OorD = "O"
+	}
+
+	const postData = {
+		"startedOnOffence": req.body.startedOnOffence,
+		"startedOnDefence": req.body.startedOnDefence,
+		"scored": req.body.scored,
+		"team1Score": req.body.team1Score,
+		"team2Score": req.body.team2Score,
+		"scoredBy": req.body.scoredBy,
+		"assistBy": req.body.assistBy,
+		"team1Class": req.body.team1Class,
+		"team2Class": req.body.team2Class,
+		"team1OorD": req.body.team1OorD,
+		"team2OorD": req.body.team2OorD,
+		"stat": req.body.stat
+	}
+
+	postJson(postPointUrl, postData).then((data) => {
+		let newPoint = postData
+
+		if (data.status == 200) {
+			res.redirect("/commentate/" + req.body.gameId)
+			console.log("Status 200: Done!")
+		} else if (data.status == 400) {
+			const errormessage = `${data.message}`
+			const newPointMsg = {
+				error: errormessage,
+				values: newPoint
+			}
+			console.error("Status 400:" + errormessage)
+		} else if (data.status == 500) {
+			const errormessage = `${data.message}`
+			const newPointMsg = {
+				error: errormessage,
+				values: newPoint
+			}
+			console.error("Status 500:" + errormessage)
+		}
+	})
+
+	res.redirect("/commentate/" + req.body.gameId)
 })
 
 /* -------------------------------------------------------------------------- */
