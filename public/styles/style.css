@@ -694,19 +694,24 @@ body{
     flex-direction: column;
     justify-content: space-between;
     height: 80%;
+    width: 5.5em;
+    
+}
+
+.logo img {
+    width: 100%;
 }
 
 .logo .team-name {
-    /* display: flex; */
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1em;
     color: var(--text-color);
-    /* margin-bottom: 1em; */
 }
 
 .score {
     color: var(--text-color);
-    font-size: 2em;
+    margin-top: 1em;
+    font-size: 1em;
     font-weight: 500;
     font-family: "Roboto Mono", "monospace";
 }
@@ -715,12 +720,27 @@ body{
     display: flex;
     gap: 0.5em;
     justify-content: center;
-    /* border-radius: ; */
+    /* transform: translateY(0.8em); */
+}
+
+.game-stat-buttons button {
+    height: 2em;
+    padding: 0.3em 0.5em;
+    border-top-left-radius: var(--border-radius-allround);
+    border-top-right-radius: var(--border-radius-allround);
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transform: translateY(0.8em);
+    font-size: 0.8em;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.3);
+    cursor: pointer;
+
 }
 
 
 /* -------------------------------------------------------------------------- */
-/*                             Navigation Sidebar                                 */
+/*                             Navigation Sidebar                             */
 /* -------------------------------------------------------------------------- */
 
 .aside-navbar {
@@ -1075,6 +1095,15 @@ body{
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                    Stats                                   */
+/* -------------------------------------------------------------------------- */
+
+.stats {
+    display: flex;
+}
+
+
+/* -------------------------------------------------------------------------- */
 /*                                 Scoreboard                                 */
 /* -------------------------------------------------------------------------- */
 .scoreboard{
@@ -1082,6 +1111,10 @@ body{
     flex-direction: column;
     padding: 0.6rem 0;
     gap: 0.6rem;
+}
+
+.hide {
+    display: none;
 }
 
 .sb-legend{
@@ -1098,9 +1131,9 @@ body{
     color: white;
     border-radius: 50%;
     aspect-ratio: 1/1;
-    width: 1rem;
-    height: 1rem;
-    margin-left: 0.3rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-left: 0.4rem;
 }
 
 .sb-legend-content{
@@ -1405,6 +1438,11 @@ body{
         grid-row: 4 / 5;
     }
 
+    .stats {
+        grid-column: 5 / 9;
+        grid-row: 4 / 5;
+    }
+
 
 x
     /* --------------------------------- Players -------------------------------- */
@@ -1457,4 +1495,8 @@ x
     .fact-answer{
         font-size: 1em;
     }
+
+    /* .logo img {
+        width: 100%;
+    } */
 }
