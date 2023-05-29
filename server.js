@@ -24,10 +24,18 @@ http.listen(server.get("port"), () => {
 });
 
 io.on('connection', (socket) => {
-  // console.log('a user connected')
+	console.log('a user connected')
+
+	socket.on('score update', (score) => {
+		io.emit('score update', score)
+	})
+
+	socket.on('scoreboard update', (scoreboard) => {
+		io.emit('scoreboard update', scoreboard)
+	})
 
 	socket.on('disconnect', () => {
-    	// console.log('user disconnected')
+		console.log('user disconnected')
 	})
 })
 
@@ -247,8 +255,6 @@ server.post("/addpoint", async (req, res) => {
 	req.body.team2Score = Number(req.body.team2Score)
 	req.body.gameId = Number(req.body.gameId)
 
-	console.log(req.body)
-
 	// Determine class
 	// Team 1 Start offence && goal
 	if (req.body.startedOnOffence === req.body.team1Id && req.body.scored === req.body.team1Id){
@@ -299,6 +305,8 @@ server.post("/addpoint", async (req, res) => {
 		req.body.team2OorD = "O"
 	}
 
+	console.log(req.body)
+
 	const postData = {
 		"startedOnOffence": req.body.startedOnOffence,
 		"startedOnDefence": req.body.startedOnDefence,
@@ -337,7 +345,7 @@ server.post("/addpoint", async (req, res) => {
 		}
 	})
 
-	res.redirect("/commentate/" + req.body.gameId)
+	// res.redirect("/commentate/" + req.body.gameId)
 })
 
 /* -------------------------------------------------------------------------- */

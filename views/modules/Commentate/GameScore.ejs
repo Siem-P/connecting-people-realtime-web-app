@@ -13,9 +13,9 @@
         <% let team1Score = gameStats.stats[0].point[lastPointIndex].team1Score %>
         <% let team2Score = gameStats.stats[0].point[lastPointIndex].team2Score %>
 
-        <span class="scored-point"><%- team1Score %></span>
+        <span class="scored-point" id="scoredPointTeam1"><%- team1Score %></span>
         <span>-</span>
-        <span class="scored-point"><%- team2Score %></span>
+        <span class="scored-point" id="scoredPointTeam2"><%- team2Score %></span>
       </div>
       <div class="logo">
         <img src="/assets/goudvissen.svg">
