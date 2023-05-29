@@ -1302,7 +1302,7 @@ body{
 .color-wrapper {
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .color-wrapper li {
@@ -1442,9 +1442,12 @@ body{
         grid-column: 5 / 9;
         grid-row: 4 / 5;
     }
-
-
-x
+  
+    .score-input{
+        grid-column: 5 / 9;
+        grid-row: 5 / 6;
+    }
+  
     /* --------------------------------- Players -------------------------------- */
 
     .team-two-players .players-heading{
