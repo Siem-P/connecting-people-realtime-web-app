@@ -3,6 +3,7 @@ import bodyParser from "body-parser"
 import * as path from "path"
 import { createServer } from 'http'
 import { Server } from 'socket.io'
+import fetch from "node-fetch";
 
 const server = express()
 const http = createServer(server)
@@ -37,6 +38,18 @@ io.on('connection', (socket) => {
 	socket.on('disconnect', () => {
 		console.log('user disconnected')
 	})
+})
+
+/* ---------------------------------- QR CODE --------------------------------- */
+
+server.get('/qr', (req, res) => {
+	res.render('qrcode')
+})
+
+/* ---------------------------------- Form for students --------------------------------- */
+
+server.get('/studentsform', (req, res) => {
+	res.render('QR_newplayer')
 })
 
 /* ---------------------------------- Index --------------------------------- */

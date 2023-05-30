@@ -1,0 +1,74 @@
+<%- include('./partials/head') %>
+
+<section class="team-form component">
+    <h1 class="team-form-heading">Add Player</h1>
+
+    <form class="add-team-form" action="/playerform" method="post" name="addTeamForm">
+        <div class="form-content">
+            <div class="form-group">
+                <label for="name">Player name *</label>
+                <input type="text" name="name" id="name" value="<%= locals.values?.name ?? ''%>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jerseyNumber">Jersey Number *</label>
+                <input type="number" name="jerseyNumber" id="jerseyNumber" value="<%= locals.values?.jerseyNumber ?? ''%>" required>
+            </div>
+
+            <fieldset>
+                <legend>Gender *</legend>
+                    <div class="form-group">
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="male" value="Male" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="female">Female</label>
+                        <input type="radio" name="gender" id="female" value="Female" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nonbinary">Non Binary</label>
+                        <input type="radio" name="gender" id="nonbinary" value="NonBinary" />
+                    </div>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="height">Height *</label>
+                <input type="number" name="height" id="height" value="<%= locals.values?.height ?? ''%>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pronounced">Pronounced</label>
+                <input type="text" name="pronounced" id="pronounced" value="<%= locals.values?.pronounced ?? ''%>">
+            </div>
+
+            <div class="form-group">
+                <label for="pronouns">Pronouns</label>
+                <input type="text" name="pronouns" id="pronouns" value="<%= locals.values?.pronouns ?? ''%>">
+            </div>
+
+            <div class="form-group">
+                <label for="team">Team *</label>
+                <select name="team">
+                    <option disabled selected>--- Select ---</option>
+
+                    <!-- If statement to check whether teams exist -->
+                    <!-- For each loop to through each team -->
+                    <!-- new <option> for each team -->
+                    <!-- Else -> no team available? Create new team -->
+
+                    <option value="cli9h5n0vtijt0aw7lhbr2uvt">Team 1</option>
+                    <option value="cli9h67zhtiti0bw2n8p0bupq">Team 2</option>
+                    <option value="cli9h6x9ktiui0bw2psicupk8">Team 3</option>
+                    <option value="cli9h7cx3tfso0bvwytyvs9s7">Team 4</option>
+
+                </select>
+            </div>
+            <!-- Add Empty Team array in the backend -->
+            <!-- Add Empty Facts array in the backend -->
+        </div>
+        <input class="form-submit" type="submit" value="Add Team">
+    </form>
+</section>
+<%- include('./partials/footer') %>
