@@ -1232,6 +1232,11 @@ body{
     width: 20%;
 }
 
+.no-content{
+    justify-content: center;
+    color: white;
+}
+
 .sb-class-icon{
     display: flex;
     align-items: center;
