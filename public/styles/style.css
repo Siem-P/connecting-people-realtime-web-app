@@ -61,10 +61,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 .qrcode a img {
-    width: 5em;
+    width: 18em;
 }
 
 
