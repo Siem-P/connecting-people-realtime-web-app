@@ -1269,10 +1269,6 @@ body{
     gap: 0.6em;
 }
 
-.hide {
-    display: none;
-}
-
 .point-heading{
     color: white;
     font-size: 1.2em;
@@ -1303,6 +1299,10 @@ body{
     gap: 1em;
     border: solid 2px white;
     padding: 1em;
+}
+
+.form-disabled{
+    opacity: 0.5;
 }
 
 
@@ -1583,4 +1583,8 @@ body{
     .logo .team-name{
         font-size: 1em;
     }
+}
+
+.hide {
+    display: none;
 }

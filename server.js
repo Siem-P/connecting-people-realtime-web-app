@@ -7,7 +7,12 @@ import fetch from "node-fetch";
 
 const server = express()
 const http = createServer(server)
-const io = new Server(http)
+const io = new Server(http, {
+	connectionStateRecovery: {
+		maxDisconnectionDuration: 2 * 60 * 1000, // 2 minutes
+		skipMiddlewares: true,
+	},
+})
 // Api url
 const apiUrl = "https://ultitv-api.netlify.app/api/v2"
 const localUrl = "http://localhost:5173/api/v2"
