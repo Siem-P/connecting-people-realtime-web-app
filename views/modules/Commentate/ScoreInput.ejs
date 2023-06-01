@@ -63,7 +63,7 @@
                             <% }) %>
                         </select>
                     </div>
-                    
+
                     <input type="text" name="gameId" id="gameId" value="<%- gameData.games[0].gameId %>" hidden>
                     <input type="text" name="team1Id" id="team1Id" value="<%- gameData.games[0].team1.id %>" hidden>
                     <input type="text" name="team2Id" id="team2Id" value="<%- gameData.games[0].team2.id %>" hidden>
@@ -74,6 +74,8 @@
                     <input type="text" name="stat" id="stat" value="<%- gameStats.stats[0].id %>" hidden>
 
                 </div>
-                <input class="form-submit point-submit" type="submit" value="Add Point">
+                <input class="form-submit point-submit" type="submit" value="Add Point" id="form-submit-btn">
             </form>
+
+            <button class="form-submit hide" id="reconnect-btn">Try Again...</button>
 </section>

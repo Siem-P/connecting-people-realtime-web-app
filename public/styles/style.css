@@ -61,10 +61,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 .qrcode a img {
-    width: 5em;
+    width: 18em;
 }
 
 
@@ -1231,6 +1232,11 @@ body{
     width: 20%;
 }
 
+.no-content{
+    justify-content: center;
+    color: white;
+}
+
 .sb-class-icon{
     display: flex;
     align-items: center;
@@ -1263,10 +1269,6 @@ body{
     gap: 0.6em;
 }
 
-.hide {
-    display: none;
-}
-
 .point-heading{
     color: white;
     font-size: 1.2em;
@@ -1297,6 +1299,10 @@ body{
     gap: 1em;
     border: solid 2px white;
     padding: 1em;
+}
+
+.form-disabled{
+    opacity: 0.5;
 }
 
 
@@ -1585,4 +1591,8 @@ body{
     .logo .team-name{
         font-size: 1em;
     }
+}
+
+.hide {
+    display: none;
 }

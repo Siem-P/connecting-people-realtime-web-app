@@ -1,10 +1,15 @@
-const socket = io();
+const socket = io({
+    reconnectionAttempts: 2,
+})
 
 // Form from html
 const form = document.getElementById("addPointForm")
-
 // Scoreboard
 const scoreboardElement = document.getElementById("scoreboard")
+// Submit button
+const submitBtn = document.getElementById("form-submit-btn")
+// Reconnect button
+const reconnectBtn = document.getElementById("reconnect-btn")
 
 // Listen for form submit
 form.addEventListener("submit", (e) => {
@@ -149,4 +154,28 @@ socket.on("score update", (score) => {
 
 socket.on("scoreboard update", (scoreboard) => {
     scoreboardElement.insertAdjacentHTML("beforeend", scoreboard)
+})
+
+socket.io.on("error", (error) => {
+    submitBtn.setAttribute("disabled", "")
+    submitBtn.value = "Connection lost"
+    submitBtn.classList.add("form-disabled")
+})
+
+socket.io.on("reconnect", (attempt) => {
+    submitBtn.removeAttribute("disabled")
+    submitBtn.value = "Add point"
+    submitBtn.classList.remove("form-disabled")
+    reconnectBtn.classList.add("hide")
+    console.log("Reconnected!")
+})
+
+socket.io.on("reconnect_attempt", (attempt) => {
+    console.log("Reconnecting...")
+})
+
+socket.io.on("reconnect_failed", () => {
+    console.log("Reconnect failed!")
+    form.classList.toggle("hide")
+    reconnectBtn.classList.remove("hide")
 })

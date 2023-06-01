@@ -1,6 +1,6 @@
 <%
-let goal = gameStats.stats[0].point.filter(pt => pt.scoredBy.id === player.id).length
-let assist = gameStats.stats[0].point.filter(pt => pt.assistBy.id === player.id).length
+let goal = gameStats.stats[0].point.filter(pt => pt.scoredBy.id === player.id).length ?? 0
+let assist = gameStats.stats[0].point.filter(pt => pt.assistBy.id === player.id).length ?? 0
 
 let block = gameStats.stats[0].point.reduce((count, pt) => {
     return (pt.blockPlayers ? count = count + pt.blockPlayers.filter(bp => bp.id === player.id).length : count = 0)
