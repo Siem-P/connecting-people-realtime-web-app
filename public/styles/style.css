@@ -1361,6 +1361,14 @@ body{
     border-radius: var(--border-radius-allround);
 }
 
+.typography--robo-mono {
+    font-family: 'Roboto Mono'
+}
+
+.typography--robo-slab {
+    font-family: 'Roboto Slab'
+}
+
 .uppercase {
     text-transform: uppercase;
 }
